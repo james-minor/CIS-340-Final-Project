@@ -1,0 +1,19 @@
+Administrator Login:
+admin
+password1
+
+Regular User Login:
+user
+password2
+
+Teacher User Login:
+teacheruser
+password3
+
+Senior User Login:
+senioruser
+password4
+
+Veteran User Login:
+veteranuser
+password5
