@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace Final_Project
 {
@@ -33,9 +34,12 @@ namespace Final_Project
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            // TODO: Create an SQL Database
-            // TODO: Create a Users Table
+
             // TODO: On LoginButton_Click, check to see if the user is valid, then move to a new screen.
+
+            // TODO: Properly get connection string from App.Config, currently throwing null exception.
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ShopEasyDBConnectionString"].ConnectionString;
+            Console.WriteLine(connectionString);
         }
 
     }
