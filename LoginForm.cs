@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Final_Project
 {
@@ -36,10 +37,55 @@ namespace Final_Project
         {
 
             // TODO: On LoginButton_Click, check to see if the user is valid, then move to a new screen.
+            // TODO: Switch from Windows Authentication to a Username and Password Auth for DB. This allows other PCs to use the app.
+            string connectionString = "";
+            try
+            {
+                connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Final_roject.Properties.Settings.ShopEasyDBConnectionString"].ConnectionString;
+            }
+            catch (NullReferenceException exception)
+            {
+                Console.WriteLine(exception.Message);
+                ErrorLabel.Text = "A Connection to the DB Could not be Established.";
+                return;
+            }
+            
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
 
-            // TODO: Properly get connection string from App.Config, currently throwing null exception.
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ShopEasyDBConnectionString"].ConnectionString;
-            Console.WriteLine(connectionString);
+            connection.Close();
+
+
+            /*
+             * Customer customer = null;
+
+            string selectStatement =
+                "SELECT CustomerID, CompanyName, ContactName, Phone " +
+                "FROM Customers " +
+                "WHERE CustomerID = @CustomerID";
+
+            using SqlConnection connection = new SqlConnection(Connection.ConnectionString);
+            using SqlCommand command = new SqlCommand(selectStatement, connection);
+            command.Parameters.AddWithValue("@CustomerID", customerID);
+            connection.Open();
+
+            using SqlDataReader reader = command.ExecuteReader(
+                CommandBehavior.SingleRow & CommandBehavior.CloseConnection);
+
+            if (reader.Read())
+            {
+                customer = new Customer
+                {
+                    CustomerID = (int)reader["CustomerID"],
+                    CompanyName = reader["CompanyName"].ToString(),
+                    ContactName = reader["ContactName"].ToString(),
+                    Phone = reader["Phone"].ToString()
+                };
+            }
+
+            return customer;
+             * 
+             */
         }
 
     }
