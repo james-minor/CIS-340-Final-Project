@@ -1,19 +1,19 @@
 Administrator Login:
 admin
-password1
+password
 
 Regular User Login:
 user
-password2
+5EPD2DS3
 
 Teacher User Login:
 teacheruser
-password3
+76KCKRXS
 
 Senior User Login:
 senioruser
-password4
+Q2DPZ3B2
 
 Veteran User Login:
 veteranuser
-password5
+UKBNN49G
