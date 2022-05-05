@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Final_Project
 {
@@ -21,9 +21,11 @@ namespace Final_Project
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            UsernameInput.MaxLength = 25;
+
             PasswordInput.Text = "";
             PasswordInput.PasswordChar = '*';
-            PasswordInput.MaxLength = 20;
+            PasswordInput.MaxLength = 25;
 
             ErrorLabel.Text = "";
         }
@@ -35,58 +37,75 @@ namespace Final_Project
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            /* SELECT statement to check if we have a valid Username and Password combination.
+             */
+            string statement =
+                "SELECT Username, Password, IsAdmin " +
+                "FROM TB_Users " +
+                "WHERE Username = @Username " +
+                "AND Password = @Password";
 
-            // TODO: On LoginButton_Click, check to see if the user is valid, then move to a new screen.
-            // TODO: Switch from Windows Authentication to a Username and Password Auth for DB. This allows other PCs to use the app.
-            string connectionString = "";
+            /* Creating the connection to the SQL database.
+             * Catching any errors regarding the ConnectionString.
+             */
+            SqlConnection connection = null;
             try
             {
-                connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Final_roject.Properties.Settings.ShopEasyDBConnectionString"].ConnectionString;
+                connection = new SqlConnection(Connection.ConnectionString);
             }
-            catch (NullReferenceException exception)
+            catch (Exception exception)
             {
                 Console.WriteLine(exception.Message);
                 ErrorLabel.Text = "A Connection to the DB Could not be Established.";
                 return;
             }
-            
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
 
-            connection.Close();
+            /* Adding in the values for the SELECT statement parameters.
+             */
+            SqlCommand command = new SqlCommand(statement, connection);
+            command.Parameters.AddWithValue("@Username", UsernameInput.Text);
+            command.Parameters.AddWithValue("@Password", PasswordInput.Text);
 
-
-            /*
-             * Customer customer = null;
-
-            string selectStatement =
-                "SELECT CustomerID, CompanyName, ContactName, Phone " +
-                "FROM Customers " +
-                "WHERE CustomerID = @CustomerID";
-
-            using SqlConnection connection = new SqlConnection(Connection.ConnectionString);
-            using SqlCommand command = new SqlCommand(selectStatement, connection);
-            command.Parameters.AddWithValue("@CustomerID", customerID);
-            connection.Open();
+            /* Failsafe, catching any Exceptions that get thrown for any reason, before the
+             * user can login.
+             */
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                ErrorLabel.Text = "Internal Database Error.";
+                return;
+            }
 
             using SqlDataReader reader = command.ExecuteReader(
                 CommandBehavior.SingleRow & CommandBehavior.CloseConnection);
 
             if (reader.Read())
             {
-                customer = new Customer
+                Form userPortal = null;
+
+                if ((bool)reader["IsAdmin"] == true)
                 {
-                    CustomerID = (int)reader["CustomerID"],
-                    CompanyName = reader["CompanyName"].ToString(),
-                    ContactName = reader["ContactName"].ToString(),
-                    Phone = reader["Phone"].ToString()
-                };
+                    userPortal = new AdminPortal();
+                }
+                else
+                {
+                    userPortal = new UserPortal();
+                }
+
+                connection.Close();
+                this.Hide();
+                userPortal.Show();
+            }
+            else
+            {
+                ErrorLabel.Text = "Incorrect Username or Password";
             }
 
-            return customer;
-             * 
-             */
+            connection.Close();
         }
-
     }
 }
