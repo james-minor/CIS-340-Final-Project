@@ -89,7 +89,7 @@ namespace Final_Project
 
                 if ((bool)reader["IsAdmin"] == true)
                 {
-                    userPortal = new AdminPortal();
+                    userPortal = new AdminPortal((string)reader["Username"]);
                 }
                 else
                 {

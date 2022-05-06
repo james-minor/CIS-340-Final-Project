@@ -60,7 +60,7 @@
             // UsernameInput
             // 
             this.UsernameInput.Location = new System.Drawing.Point(68, 24);
-            this.UsernameInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UsernameInput.Margin = new System.Windows.Forms.Padding(2);
             this.UsernameInput.Name = "UsernameInput";
             this.UsernameInput.Size = new System.Drawing.Size(210, 20);
             this.UsernameInput.TabIndex = 2;
@@ -68,7 +68,7 @@
             // PasswordInput
             // 
             this.PasswordInput.Location = new System.Drawing.Point(68, 46);
-            this.PasswordInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PasswordInput.Margin = new System.Windows.Forms.Padding(2);
             this.PasswordInput.Name = "PasswordInput";
             this.PasswordInput.Size = new System.Drawing.Size(210, 20);
             this.PasswordInput.TabIndex = 3;
@@ -87,7 +87,7 @@
             // ExitButton
             // 
             this.ExitButton.Location = new System.Drawing.Point(11, 94);
-            this.ExitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(2);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(56, 23);
             this.ExitButton.TabIndex = 5;
@@ -98,7 +98,7 @@
             // LoginButton
             // 
             this.LoginButton.Location = new System.Drawing.Point(72, 94);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(56, 23);
             this.LoginButton.TabIndex = 6;
@@ -119,7 +119,7 @@
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.Text = "ShopEasy Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
