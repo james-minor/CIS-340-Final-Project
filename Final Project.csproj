@@ -203,6 +203,9 @@
     <Compile Include="UserPortal.Designer.cs">
       <DependentUpon>UserPortal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminPortal.resx">
+      <DependentUpon>AdminPortal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
