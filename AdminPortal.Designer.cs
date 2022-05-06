@@ -35,18 +35,18 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.ProductUpdateCategoryInput = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.ProductUpdatePriceInput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ProductUpdateNameInput = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ProductUpdateIDInput = new System.Windows.Forms.TextBox();
             this.ProductSearchButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ProductSearchNameInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ProductSearchIDInput = new System.Windows.Forms.TextBox();
             this.UserPage = new System.Windows.Forms.TabPage();
             this.InvoicePage = new System.Windows.Forms.TabPage();
             this.LogoutButton = new System.Windows.Forms.Button();
@@ -75,9 +75,9 @@
             this.ProductPage.Controls.Add(this.groupBox1);
             this.ProductPage.Controls.Add(this.ProductSearchButton);
             this.ProductPage.Controls.Add(this.label2);
-            this.ProductPage.Controls.Add(this.textBox2);
+            this.ProductPage.Controls.Add(this.ProductSearchNameInput);
             this.ProductPage.Controls.Add(this.label1);
-            this.ProductPage.Controls.Add(this.textBox1);
+            this.ProductPage.Controls.Add(this.ProductSearchIDInput);
             this.ProductPage.Location = new System.Drawing.Point(4, 22);
             this.ProductPage.Name = "ProductPage";
             this.ProductPage.Padding = new System.Windows.Forms.Padding(3);
@@ -89,6 +89,7 @@
             // ProductOutputLabel
             // 
             this.ProductOutputLabel.AutoSize = true;
+            this.ProductOutputLabel.ForeColor = System.Drawing.Color.Brown;
             this.ProductOutputLabel.Location = new System.Drawing.Point(510, 23);
             this.ProductOutputLabel.Name = "ProductOutputLabel";
             this.ProductOutputLabel.Size = new System.Drawing.Size(115, 13);
@@ -100,13 +101,13 @@
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.ProductUpdateCategoryInput);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.ProductUpdatePriceInput);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.ProductUpdateNameInput);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.ProductUpdateIDInput);
             this.groupBox1.Location = new System.Drawing.Point(9, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(775, 127);
@@ -141,12 +142,12 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "Product Category:";
             // 
-            // textBox6
+            // ProductUpdateCategoryInput
             // 
-            this.textBox6.Location = new System.Drawing.Point(514, 39);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(126, 20);
-            this.textBox6.TabIndex = 6;
+            this.ProductUpdateCategoryInput.Location = new System.Drawing.Point(514, 39);
+            this.ProductUpdateCategoryInput.Name = "ProductUpdateCategoryInput";
+            this.ProductUpdateCategoryInput.Size = new System.Drawing.Size(126, 20);
+            this.ProductUpdateCategoryInput.TabIndex = 6;
             // 
             // label5
             // 
@@ -157,12 +158,12 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Product Price:";
             // 
-            // textBox5
+            // ProductUpdatePriceInput
             // 
-            this.textBox5.Location = new System.Drawing.Point(382, 39);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(126, 20);
-            this.textBox5.TabIndex = 4;
+            this.ProductUpdatePriceInput.Location = new System.Drawing.Point(382, 39);
+            this.ProductUpdatePriceInput.Name = "ProductUpdatePriceInput";
+            this.ProductUpdatePriceInput.Size = new System.Drawing.Size(126, 20);
+            this.ProductUpdatePriceInput.TabIndex = 4;
             // 
             // label4
             // 
@@ -173,12 +174,12 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Product Name:";
             // 
-            // textBox4
+            // ProductUpdateNameInput
             // 
-            this.textBox4.Location = new System.Drawing.Point(250, 39);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(126, 20);
-            this.textBox4.TabIndex = 2;
+            this.ProductUpdateNameInput.Location = new System.Drawing.Point(250, 39);
+            this.ProductUpdateNameInput.Name = "ProductUpdateNameInput";
+            this.ProductUpdateNameInput.Size = new System.Drawing.Size(126, 20);
+            this.ProductUpdateNameInput.TabIndex = 2;
             // 
             // label3
             // 
@@ -189,12 +190,12 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Product ID:";
             // 
-            // textBox3
+            // ProductUpdateIDInput
             // 
-            this.textBox3.Location = new System.Drawing.Point(118, 39);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(126, 20);
-            this.textBox3.TabIndex = 0;
+            this.ProductUpdateIDInput.Location = new System.Drawing.Point(118, 39);
+            this.ProductUpdateIDInput.Name = "ProductUpdateIDInput";
+            this.ProductUpdateIDInput.Size = new System.Drawing.Size(126, 20);
+            this.ProductUpdateIDInput.TabIndex = 0;
             // 
             // ProductSearchButton
             // 
@@ -204,6 +205,7 @@
             this.ProductSearchButton.TabIndex = 4;
             this.ProductSearchButton.Text = "Search for Product";
             this.ProductSearchButton.UseVisualStyleBackColor = true;
+            this.ProductSearchButton.Click += new System.EventHandler(this.ProductSearchButton_Click);
             // 
             // label2
             // 
@@ -214,12 +216,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Search Product Name:";
             // 
-            // textBox2
+            // ProductSearchNameInput
             // 
-            this.textBox2.Location = new System.Drawing.Point(127, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 20);
-            this.textBox2.TabIndex = 2;
+            this.ProductSearchNameInput.Location = new System.Drawing.Point(127, 32);
+            this.ProductSearchNameInput.Name = "ProductSearchNameInput";
+            this.ProductSearchNameInput.Size = new System.Drawing.Size(208, 20);
+            this.ProductSearchNameInput.TabIndex = 2;
             // 
             // label1
             // 
@@ -230,12 +232,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Search Product ID:";
             // 
-            // textBox1
+            // ProductSearchIDInput
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 20);
-            this.textBox1.TabIndex = 0;
+            this.ProductSearchIDInput.Location = new System.Drawing.Point(127, 6);
+            this.ProductSearchIDInput.Name = "ProductSearchIDInput";
+            this.ProductSearchIDInput.Size = new System.Drawing.Size(208, 20);
+            this.ProductSearchIDInput.TabIndex = 0;
             // 
             // UserPage
             // 
@@ -324,21 +326,21 @@
         private System.Windows.Forms.TabPage UserPage;
         private System.Windows.Forms.TabPage InvoicePage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ProductSearchIDInput;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ProductUpdateIDInput;
         private System.Windows.Forms.Button ProductSearchButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ProductSearchNameInput;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox ProductUpdateCategoryInput;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox ProductUpdatePriceInput;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ProductUpdateNameInput;
         private System.Windows.Forms.Label ProductOutputLabel;
         private System.Windows.Forms.Button LogoutButton;
         private System.Windows.Forms.Button ExitButton;
