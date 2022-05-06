@@ -103,8 +103,8 @@ namespace Final_Project
 
                 ProductUpdateIDInput.Text = Convert.ToString(reader["Product_ID"]);
                 ProductUpdateNameInput.Text = (string)reader["Name"];
-                ProductUpdatePriceInput.Text = "";
-                ProductUpdateCategoryInput.Text = "";
+                ProductUpdatePriceInput.Text = String.Format("{0:0.00}", reader["Price"]);
+                ProductUpdateCategoryInput.Text = (string)reader["Category"];
             }
             else
             {
@@ -113,6 +113,16 @@ namespace Final_Project
             }
 
             connection.Close();
+        }
+
+        private void ProductCreateButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProductDeleteButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
