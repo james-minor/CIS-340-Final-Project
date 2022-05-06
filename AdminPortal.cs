@@ -122,7 +122,82 @@ namespace Final_Project
 
         private void ProductDeleteButton_Click(object sender, EventArgs e)
         {
+            /* Sanitizing the input data before attempting a database connection.
+             */
+            if (ProductUpdateIDInput.Text != "" && !int.TryParse(ProductUpdateIDInput.Text, out int id))
+            {
+                ProductOutputLabel.ForeColor = Color.Brown;
+                ProductOutputLabel.Text = "Could not delete product. Invalid ID.";
+                return;
+            }
 
+            /* Counting the amount of rows before deletion.
+             */
+            string selectStatement =
+                "SELECT COUNT(Product_ID) " +
+                "FROM TB_Products";
+
+            // TODO: Count before and after the deletion to verify a product was deleted.
+            // TODO: Create a database connection function in the Connection static class, so it fucking works.
+
+            /* SELECT statement to get the product information.
+             */
+            string deleteStatement =
+                "DELETE " +
+                "FROM TB_Products " +
+                "WHERE Product_ID = @Product_ID ";
+
+            /* Creating the connection to the SQL database.
+             * Catching any errors regarding the ConnectionString.
+             */
+            SqlConnection connection = null;
+            try
+            {
+                connection = new SqlConnection(Connection.ConnectionString);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                ProductOutputLabel.ForeColor = Color.Brown;
+                ProductOutputLabel.Text = "A Connection to the DB Could not be Established.";
+                return;
+            }
+
+            /* Adding in the values for the DELETE statement parameters.
+             */
+            SqlCommand command = new SqlCommand(deleteStatement, connection);
+            command.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
+
+            /* Failsafe, catching any Exceptions that get thrown for any reason after attempting to
+             * open the connection.
+             */
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                ProductOutputLabel.ForeColor = Color.Brown;
+                ProductOutputLabel.Text = "Internal Database Error.";
+                return;
+            }
+
+            using SqlDataReader reader = command.ExecuteReader(
+                CommandBehavior.SingleRow & CommandBehavior.CloseConnection);
+
+            if (reader.Read())
+            {
+                ProductOutputLabel.ForeColor = Color.Green;
+                ProductOutputLabel.Text = "Product deleted successfully.";
+            }
+            else
+            {
+                ProductOutputLabel.ForeColor = Color.Brown;
+                ProductOutputLabel.Text = "Product could not be found.";
+            }
+
+            connection.Close();
         }
     }
 }
