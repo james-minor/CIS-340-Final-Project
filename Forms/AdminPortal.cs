@@ -20,7 +20,7 @@ namespace Final_Project
             UsernameLabel.Text = username;
             ProductOutputLabel.Text = "";
 
-            PopulateDataGrid();
+            PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
         }
 
         /* Attempts to create a connection to the SQL Database using the Connection class.
@@ -46,7 +46,12 @@ namespace Final_Project
             return true;
         }
 
-        private void PopulateDataGrid()
+        /* When called, PopulateDataGrid populates a passed data grid view table.
+         * 
+         * dataView:            The DataGridView to populate.
+         * selectStatement:     The SQL SELECT statement to determine what data to SELECT.
+         */
+        private void PopulateDataGrid(DataGridView dataView, string selectStatement)
         {
             /* Attempting to create a Database Connection.
              */
@@ -55,7 +60,7 @@ namespace Final_Project
                 return;
             }
 
-            SqlCommand command = new SqlCommand("SELECT * FROM TB_Products", Connection.GetConnection());
+            SqlCommand command = new SqlCommand(selectStatement, Connection.GetConnection());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
 
             DataTable table = new DataTable();
@@ -66,7 +71,7 @@ namespace Final_Project
              */
             table.Columns["Product_ID"].ColumnName = "ID";
 
-            ProductDataView.DataSource = table;
+            dataView.DataSource = table;
         }
 
         private void LogoutButton_Click(object sender, EventArgs e)
@@ -140,7 +145,56 @@ namespace Final_Project
 
         private void ProductCreateButton_Click(object sender, EventArgs e)
         {
+            /* Sanitizing the product ID data before attempting a database connection.
+             */
+            if (ProductUpdateIDInput.Text == "" || !int.TryParse(ProductUpdateIDInput.Text, out int id))
+            {
+                ProductOutputLabel.ForeColor = Color.Brown;
+                ProductOutputLabel.Text = "Could not add product. Invalid ID.";
+                return;
+            }
 
+            /* Sanitizing the product Price data before attempting a database connection.
+             */
+            double productPrice;
+            bool priceIsNumeric = double.TryParse(ProductUpdatePriceInput.Text, out productPrice);
+            if (!priceIsNumeric)
+            {
+                ProductOutputLabel.ForeColor = Color.Brown;
+                ProductOutputLabel.Text = "Could not add product. Price must be numeric.";
+                return;
+            }
+            if(productPrice < 0.0)
+            {
+                ProductOutputLabel.ForeColor = Color.Brown;
+                ProductOutputLabel.Text = "Could not add product. Price cannot be negative.";
+                return;
+            }
+
+            /* ----- Pushing Data to the Database -----
+             */
+
+            string statement =
+                "INSERT INTO TB_Products " +
+                "VALUES (@Product_ID, @Price, @Category, @Name)";
+
+            if (!CreateDatabaseConnection())
+            {
+                return;
+            }
+
+            SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
+            command.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
+            command.Parameters.AddWithValue("@Price", ProductUpdatePriceInput.Text);
+            command.Parameters.AddWithValue("@Category", ProductUpdateCategoryInput.Text);
+            command.Parameters.AddWithValue("@Name", ProductUpdateNameInput.Text);
+
+            command.ExecuteNonQuery();
+            Connection.Close();
+
+            ProductOutputLabel.ForeColor = Color.Green;
+            ProductOutputLabel.Text = "Product added successfully.";
+            PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
         }
 
         private void ProductDeleteButton_Click(object sender, EventArgs e)
@@ -156,7 +210,7 @@ namespace Final_Project
 
             /* SELECT statement to get the product information.
              */
-            string deleteStatement =
+            string statement =
                 "DELETE " +
                 "FROM TB_Products " +
                 "WHERE Product_ID = @Product_ID ";
@@ -170,13 +224,15 @@ namespace Final_Project
 
             /* Adding in the values for the DELETE statement parameters.
              */
-            SqlCommand deleteCommand = new SqlCommand(deleteStatement, Connection.GetConnection());
-            deleteCommand.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
+            SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
+            command.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
 
-            using SqlDataReader reader = deleteCommand.ExecuteReader(
-                CommandBehavior.SingleRow & CommandBehavior.CloseConnection);
+            /* Running and Validating the SQL query.
+             */
+            int rowsAffected = command.ExecuteNonQuery();
+            Connection.Close();
 
-            if (reader.Read())
+            if (rowsAffected > 0)
             {
                 ProductOutputLabel.ForeColor = Color.Green;
                 ProductOutputLabel.Text = "Product deleted successfully.";
@@ -184,10 +240,10 @@ namespace Final_Project
             else
             {
                 ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Product could not be found.";
+                ProductOutputLabel.Text = "Cannot delete a product that does not exist.";
             }
 
-            Connection.Close();
+            PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
         }
     }
 }
