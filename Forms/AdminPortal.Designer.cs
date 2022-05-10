@@ -52,6 +52,7 @@
             this.ExitButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
+            this.UserSettingsButton = new System.Windows.Forms.Button();
             this.adminTabControl.SuspendLayout();
             this.ProductPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataView)).BeginInit();
@@ -292,11 +293,21 @@
             this.UsernameLabel.TabIndex = 4;
             this.UsernameLabel.Text = "INSERT USERNAME";
             // 
+            // UserSettingsButton
+            // 
+            this.UserSettingsButton.Location = new System.Drawing.Point(568, 12);
+            this.UserSettingsButton.Name = "UserSettingsButton";
+            this.UserSettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.UserSettingsButton.TabIndex = 5;
+            this.UserSettingsButton.Text = "My &Account";
+            this.UserSettingsButton.UseVisualStyleBackColor = true;
+            // 
             // AdminPortal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 506);
+            this.Controls.Add(this.UserSettingsButton);
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ExitButton);
@@ -342,5 +353,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.DataGridView ProductDataView;
+        private System.Windows.Forms.Button UserSettingsButton;
     }
 }
