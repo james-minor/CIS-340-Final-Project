@@ -1,4 +1,4 @@
-﻿namespace Final_Project.Forms
+﻿namespace Final_Project
 {
     partial class UserSettings
     {
@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.NewPasswordInput = new System.Windows.Forms.TextBox();
             this.ChangePasswordButton = new System.Windows.Forms.Button();
+            this.NewPasswordInput = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ChangeInformationButton = new System.Windows.Forms.Button();
+            this.PhoneInput = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.EmailInput = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LastNameInput = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.FirstNameInput = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.ChangeUsernameButton = new System.Windows.Forms.Button();
             this.NewUsernameInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.FirstNameInput = new System.Windows.Forms.TextBox();
-            this.LastNameInput = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.EmailInput = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.PhoneInput = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.ChangeInformationButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -64,6 +64,31 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change Password";
+            // 
+            // ChangePasswordButton
+            // 
+            this.ChangePasswordButton.Location = new System.Drawing.Point(51, 48);
+            this.ChangePasswordButton.Name = "ChangePasswordButton";
+            this.ChangePasswordButton.Size = new System.Drawing.Size(154, 23);
+            this.ChangePasswordButton.TabIndex = 2;
+            this.ChangePasswordButton.Text = "Change Password";
+            this.ChangePasswordButton.UseVisualStyleBackColor = true;
+            // 
+            // NewPasswordInput
+            // 
+            this.NewPasswordInput.Location = new System.Drawing.Point(93, 22);
+            this.NewPasswordInput.Name = "NewPasswordInput";
+            this.NewPasswordInput.Size = new System.Drawing.Size(154, 20);
+            this.NewPasswordInput.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "New Password:";
             // 
             // groupBox2
             // 
@@ -83,30 +108,78 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update User Information";
             // 
-            // label1
+            // ChangeInformationButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "New Password:";
+            this.ChangeInformationButton.Location = new System.Drawing.Point(51, 159);
+            this.ChangeInformationButton.Name = "ChangeInformationButton";
+            this.ChangeInformationButton.Size = new System.Drawing.Size(154, 23);
+            this.ChangeInformationButton.TabIndex = 4;
+            this.ChangeInformationButton.Text = "Change Information";
+            this.ChangeInformationButton.UseVisualStyleBackColor = true;
             // 
-            // NewPasswordInput
+            // PhoneInput
             // 
-            this.NewPasswordInput.Location = new System.Drawing.Point(93, 22);
-            this.NewPasswordInput.Name = "NewPasswordInput";
-            this.NewPasswordInput.Size = new System.Drawing.Size(154, 20);
-            this.NewPasswordInput.TabIndex = 1;
+            this.PhoneInput.Location = new System.Drawing.Point(12, 133);
+            this.PhoneInput.Name = "PhoneInput";
+            this.PhoneInput.Size = new System.Drawing.Size(235, 20);
+            this.PhoneInput.TabIndex = 7;
             // 
-            // ChangePasswordButton
+            // label7
             // 
-            this.ChangePasswordButton.Location = new System.Drawing.Point(51, 48);
-            this.ChangePasswordButton.Name = "ChangePasswordButton";
-            this.ChangePasswordButton.Size = new System.Drawing.Size(154, 23);
-            this.ChangePasswordButton.TabIndex = 2;
-            this.ChangePasswordButton.Text = "Change Password";
-            this.ChangePasswordButton.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 117);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Phone Number:";
+            // 
+            // EmailInput
+            // 
+            this.EmailInput.Location = new System.Drawing.Point(12, 86);
+            this.EmailInput.Name = "EmailInput";
+            this.EmailInput.Size = new System.Drawing.Size(235, 20);
+            this.EmailInput.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Email Address:";
+            // 
+            // LastNameInput
+            // 
+            this.LastNameInput.Location = new System.Drawing.Point(147, 43);
+            this.LastNameInput.Name = "LastNameInput";
+            this.LastNameInput.Size = new System.Drawing.Size(100, 20);
+            this.LastNameInput.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(144, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Last Name:";
+            // 
+            // FirstNameInput
+            // 
+            this.FirstNameInput.Location = new System.Drawing.Point(12, 43);
+            this.FirstNameInput.Name = "FirstNameInput";
+            this.FirstNameInput.Size = new System.Drawing.Size(100, 20);
+            this.FirstNameInput.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "First Name:";
             // 
             // BackButton
             // 
@@ -116,6 +189,7 @@
             this.BackButton.TabIndex = 2;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // groupBox3
             // 
@@ -129,6 +203,15 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Change Username";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(241, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "*Changing your Username will force you to logout.";
             // 
             // ChangeUsernameButton
             // 
@@ -155,88 +238,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "New Username:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(241, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "*Changing your Username will force you to logout.";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "First Name:";
-            // 
-            // FirstNameInput
-            // 
-            this.FirstNameInput.Location = new System.Drawing.Point(12, 43);
-            this.FirstNameInput.Name = "FirstNameInput";
-            this.FirstNameInput.Size = new System.Drawing.Size(100, 20);
-            this.FirstNameInput.TabIndex = 1;
-            // 
-            // LastNameInput
-            // 
-            this.LastNameInput.Location = new System.Drawing.Point(147, 43);
-            this.LastNameInput.Name = "LastNameInput";
-            this.LastNameInput.Size = new System.Drawing.Size(100, 20);
-            this.LastNameInput.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(144, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Last Name:";
-            // 
-            // EmailInput
-            // 
-            this.EmailInput.Location = new System.Drawing.Point(12, 86);
-            this.EmailInput.Name = "EmailInput";
-            this.EmailInput.Size = new System.Drawing.Size(235, 20);
-            this.EmailInput.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Email Address:";
-            // 
-            // PhoneInput
-            // 
-            this.PhoneInput.Location = new System.Drawing.Point(12, 133);
-            this.PhoneInput.Name = "PhoneInput";
-            this.PhoneInput.Size = new System.Drawing.Size(235, 20);
-            this.PhoneInput.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 117);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Phone Number:";
-            // 
-            // ChangeInformationButton
-            // 
-            this.ChangeInformationButton.Location = new System.Drawing.Point(51, 159);
-            this.ChangeInformationButton.Name = "ChangeInformationButton";
-            this.ChangeInformationButton.Size = new System.Drawing.Size(154, 23);
-            this.ChangeInformationButton.TabIndex = 4;
-            this.ChangeInformationButton.Text = "Change Information";
-            this.ChangeInformationButton.UseVisualStyleBackColor = true;
-            // 
             // UserSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,8 +247,11 @@
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximumSize = new System.Drawing.Size(299, 489);
             this.Name = "UserSettings";
             this.Text = "My Account Settings";
+            this.Load += new System.EventHandler(this.UserSettings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
