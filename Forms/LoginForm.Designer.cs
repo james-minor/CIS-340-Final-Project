@@ -120,6 +120,7 @@
             this.Controls.Add(this.UsernameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(302, 169);
             this.Name = "LoginForm";
             this.Text = "ShopEasy Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
