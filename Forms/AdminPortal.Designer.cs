@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.adminTabControl = new System.Windows.Forms.TabControl();
             this.ProductPage = new System.Windows.Forms.TabPage();
             this.ProductDataView = new System.Windows.Forms.DataGridView();
             this.ProductOutputLabel = new System.Windows.Forms.Label();
@@ -52,22 +52,22 @@
             this.ExitButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.adminTabControl.SuspendLayout();
             this.ProductPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // adminTabControl
             // 
-            this.tabControl1.Controls.Add(this.ProductPage);
-            this.tabControl1.Controls.Add(this.UserPage);
-            this.tabControl1.Controls.Add(this.InvoicePage);
-            this.tabControl1.Location = new System.Drawing.Point(11, 40);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(798, 455);
-            this.tabControl1.TabIndex = 0;
+            this.adminTabControl.Controls.Add(this.ProductPage);
+            this.adminTabControl.Controls.Add(this.UserPage);
+            this.adminTabControl.Controls.Add(this.InvoicePage);
+            this.adminTabControl.Location = new System.Drawing.Point(11, 40);
+            this.adminTabControl.Name = "adminTabControl";
+            this.adminTabControl.SelectedIndex = 0;
+            this.adminTabControl.Size = new System.Drawing.Size(798, 455);
+            this.adminTabControl.TabIndex = 0;
             // 
             // ProductPage
             // 
@@ -240,7 +240,7 @@
             this.UserPage.Location = new System.Drawing.Point(4, 22);
             this.UserPage.Name = "UserPage";
             this.UserPage.Padding = new System.Windows.Forms.Padding(3);
-            this.UserPage.Size = new System.Drawing.Size(790, 452);
+            this.UserPage.Size = new System.Drawing.Size(790, 429);
             this.UserPage.TabIndex = 1;
             this.UserPage.Text = "Users";
             this.UserPage.UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@
             // 
             this.InvoicePage.Location = new System.Drawing.Point(4, 22);
             this.InvoicePage.Name = "InvoicePage";
-            this.InvoicePage.Size = new System.Drawing.Size(790, 452);
+            this.InvoicePage.Size = new System.Drawing.Size(790, 429);
             this.InvoicePage.TabIndex = 2;
             this.InvoicePage.Text = "Invoices";
             this.InvoicePage.UseVisualStyleBackColor = true;
@@ -301,11 +301,11 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.LogoutButton);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.adminTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AdminPortal";
             this.Text = "AdminPortal";
-            this.tabControl1.ResumeLayout(false);
+            this.adminTabControl.ResumeLayout(false);
             this.ProductPage.ResumeLayout(false);
             this.ProductPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataView)).EndInit();
@@ -318,7 +318,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl adminTabControl;
         private System.Windows.Forms.TabPage ProductPage;
         private System.Windows.Forms.TabPage UserPage;
         private System.Windows.Forms.TabPage InvoicePage;
