@@ -45,40 +45,24 @@ namespace Final_Project
                 "WHERE Username = @Username " +
                 "AND Password = @Password";
 
-            /* Creating the connection to the SQL database.
-             * Catching any errors regarding the ConnectionString.
+            /* Attempting to create a Database Connection.
              */
-            SqlConnection connection = null;
-            try
+            if(!Connection.Create())
             {
-                connection = new SqlConnection(Connection.ConnectionString);
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
                 ErrorLabel.Text = "A Connection to the DB Could not be Established.";
+                return;
+            }
+            if(!Connection.Open())
+            {
+                ErrorLabel.Text = "Internal Database Error.";
                 return;
             }
 
             /* Adding in the values for the SELECT statement parameters.
              */
-            SqlCommand command = new SqlCommand(statement, connection);
+            SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
             command.Parameters.AddWithValue("@Username", UsernameInput.Text);
             command.Parameters.AddWithValue("@Password", PasswordInput.Text);
-
-            /* Failsafe, catching any Exceptions that get thrown for any reason, before the
-             * user can login.
-             */
-            try
-            {
-                connection.Open();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                ErrorLabel.Text = "Internal Database Error.";
-                return;
-            }
 
             using SqlDataReader reader = command.ExecuteReader(
                 CommandBehavior.SingleRow & CommandBehavior.CloseConnection);
@@ -96,7 +80,7 @@ namespace Final_Project
                     userPortal = new UserPortal();
                 }
 
-                connection.Close();
+                Connection.Close();
                 this.Hide();
                 userPortal.Show();
             }
@@ -105,7 +89,7 @@ namespace Final_Project
                 ErrorLabel.Text = "Incorrect Username or Password";
             }
 
-            connection.Close();
+            Connection.Close();
         }
     }
 }

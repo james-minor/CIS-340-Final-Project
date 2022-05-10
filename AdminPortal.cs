@@ -18,8 +18,55 @@ namespace Final_Project
             InitializeComponent();
 
             UsernameLabel.Text = username;
-
             ProductOutputLabel.Text = "";
+
+            PopulateDataGrid();
+        }
+
+        /* Attempts to create a connection to the SQL Database using the Connection class.
+         * If any errors are encountered, they are output to the ProductOutputLabel, and
+         * CreateDatabaseConnection will return FALSE.
+         */
+        private bool CreateDatabaseConnection()
+        {
+            if (!Connection.Create())
+            {
+                ProductOutputLabel.ForeColor = Color.Brown;
+                ProductOutputLabel.Text = "A Connection to the DB Could not be Established.";
+                return false;
+            }
+
+            if (!Connection.Open())
+            {
+                ProductOutputLabel.ForeColor = Color.Brown;
+                ProductOutputLabel.Text = "Internal Database Error.";
+                return false;
+            }
+
+            return true;
+        }
+
+        private void PopulateDataGrid()
+        {
+            /* Attempting to create a Database Connection.
+             */
+            if(!CreateDatabaseConnection())
+            {
+                return;
+            }
+
+            SqlCommand command = new SqlCommand("SELECT * FROM TB_Products", Connection.GetConnection());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            Connection.Close();
+
+            /* Reformatting and changing settings on the generated data table before pushing it to the form.
+             */
+            table.Columns["Product_ID"].ColumnName = "ID";
+
+            ProductDataView.DataSource = table;
         }
 
         private void LogoutButton_Click(object sender, EventArgs e)
@@ -53,42 +100,18 @@ namespace Final_Project
                 "WHERE Product_ID = @Product_ID " +
                 "OR Name = @Name";
 
-            /* Creating the connection to the SQL database.
-             * Catching any errors regarding the ConnectionString.
+            /* Attempting to create a Database Connection.
              */
-            SqlConnection connection = null;
-            try
+            if (!CreateDatabaseConnection())
             {
-                connection = new SqlConnection(Connection.ConnectionString);
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "A Connection to the DB Could not be Established.";
                 return;
             }
 
             /* Adding in the values for the SELECT statement parameters.
              */
-            SqlCommand command = new SqlCommand(statement, connection);
+            SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
             command.Parameters.AddWithValue("@Product_ID", ProductSearchIDInput.Text);
             command.Parameters.AddWithValue("@Name", ProductSearchNameInput.Text);
-
-            /* Failsafe, catching any Exceptions that get thrown for any reason after attempting to
-             * open the connection.
-             */
-            try
-            {
-                connection.Open();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Internal Database Error.";
-                return;
-            }
 
             using SqlDataReader reader = command.ExecuteReader(
                 CommandBehavior.SingleRow & CommandBehavior.CloseConnection);
@@ -112,7 +135,7 @@ namespace Final_Project
                 ProductOutputLabel.Text = "Product could not be found.";
             }
 
-            connection.Close();
+            Connection.Close();
         }
 
         private void ProductCreateButton_Click(object sender, EventArgs e)
@@ -131,15 +154,6 @@ namespace Final_Project
                 return;
             }
 
-            /* Counting the amount of rows before deletion.
-             */
-            string selectStatement =
-                "SELECT COUNT(Product_ID) " +
-                "FROM TB_Products";
-
-            // TODO: Count before and after the deletion to verify a product was deleted.
-            // TODO: Create a database connection function in the Connection static class, so it fucking works.
-
             /* SELECT statement to get the product information.
              */
             string deleteStatement =
@@ -147,43 +161,19 @@ namespace Final_Project
                 "FROM TB_Products " +
                 "WHERE Product_ID = @Product_ID ";
 
-            /* Creating the connection to the SQL database.
-             * Catching any errors regarding the ConnectionString.
+            /* Attempting to create a Database Connection.
              */
-            SqlConnection connection = null;
-            try
+            if (!CreateDatabaseConnection())
             {
-                connection = new SqlConnection(Connection.ConnectionString);
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "A Connection to the DB Could not be Established.";
                 return;
             }
 
             /* Adding in the values for the DELETE statement parameters.
              */
-            SqlCommand command = new SqlCommand(deleteStatement, connection);
-            command.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, Connection.GetConnection());
+            deleteCommand.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
 
-            /* Failsafe, catching any Exceptions that get thrown for any reason after attempting to
-             * open the connection.
-             */
-            try
-            {
-                connection.Open();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Internal Database Error.";
-                return;
-            }
-
-            using SqlDataReader reader = command.ExecuteReader(
+            using SqlDataReader reader = deleteCommand.ExecuteReader(
                 CommandBehavior.SingleRow & CommandBehavior.CloseConnection);
 
             if (reader.Read())
@@ -197,7 +187,7 @@ namespace Final_Project
                 ProductOutputLabel.Text = "Product could not be found.";
             }
 
-            connection.Close();
+            Connection.Close();
         }
     }
 }
