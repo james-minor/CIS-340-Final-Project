@@ -31,15 +31,13 @@ namespace Final_Project
         {
             if (!Connection.Create())
             {
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "A Connection to the DB Could not be Established.";
+                GenerateError(ProductOutputLabel, "A Connection to the DB Could not be Established.");
                 return false;
             }
 
             if (!Connection.Open())
             {
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Internal Database Error.";
+                GenerateError(ProductOutputLabel, "Internal Database Error.");
                 return false;
             }
 
@@ -74,6 +72,30 @@ namespace Final_Project
             dataView.DataSource = table;
         }
 
+        /* Outputs a passed string to a passed label, setting the proper formatting for the label -
+         * styling it as an error.
+         * 
+         * outputLabel:         The label to print to.
+         * outputString:        The string to output.
+         */
+        private void GenerateError(Label outputLabel, string outputString)
+        {
+            outputLabel.ForeColor = Color.Brown;
+            outputLabel.Text = outputString;
+        }
+
+        /* Outputs a passed string to a passed label, setting the proper formatting for the label -
+         * styling it as a successful operation message.
+         * 
+         * outputLabel:         The label to print to.
+         * outputString:        The string to output.
+         */
+        private void GenerateSuccess(Label outputLabel, string outputString)
+        {
+            outputLabel.ForeColor = Color.Green;
+            outputLabel.Text = outputString;
+        }
+
         private void LogoutButton_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
@@ -92,8 +114,7 @@ namespace Final_Project
              */
             if(ProductSearchIDInput.Text != "" && !int.TryParse(ProductSearchIDInput.Text, out int id))
             {
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "ID Numbers may ONLY be integers.";
+                GenerateError(ProductOutputLabel, "ID Numbers may ONLY be integers.");
                 return;
             }
 
@@ -102,8 +123,7 @@ namespace Final_Project
             string statement =
                 "SELECT Product_ID, Name, Price, Category " +
                 "FROM TB_Products " +
-                "WHERE Product_ID = @Product_ID " +
-                "OR Name = @Name";
+                "WHERE Product_ID = @Product_ID";
 
             /* Attempting to create a Database Connection.
              */
@@ -116,18 +136,15 @@ namespace Final_Project
              */
             SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
             command.Parameters.AddWithValue("@Product_ID", ProductSearchIDInput.Text);
-            command.Parameters.AddWithValue("@Name", ProductSearchNameInput.Text);
 
             using SqlDataReader reader = command.ExecuteReader(
                 CommandBehavior.SingleRow & CommandBehavior.CloseConnection);
 
             if (reader.Read())
             {
-                ProductOutputLabel.ForeColor = Color.Green;
-                ProductOutputLabel.Text = "Product found successfully.";
+                GenerateSuccess(ProductOutputLabel, "Product found successfully.");
 
                 ProductSearchIDInput.Text = Convert.ToString(reader["Product_ID"]);
-                ProductSearchNameInput.Text = (string)reader["Name"];
 
                 ProductUpdateIDInput.Text = Convert.ToString(reader["Product_ID"]);
                 ProductUpdateNameInput.Text = (string)reader["Name"];
@@ -136,8 +153,7 @@ namespace Final_Project
             }
             else
             {
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Product could not be found.";
+                GenerateError(ProductOutputLabel, "Product could not be found.");
             }
 
             Connection.Close();
@@ -149,8 +165,7 @@ namespace Final_Project
              */
             if (ProductUpdateIDInput.Text == "" || !int.TryParse(ProductUpdateIDInput.Text, out int id))
             {
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Could not add product. Invalid ID.";
+                GenerateError(ProductOutputLabel, "Could not update product. Invalid ID.");
                 return;
             }
 
@@ -160,40 +175,94 @@ namespace Final_Project
             bool priceIsNumeric = double.TryParse(ProductUpdatePriceInput.Text, out productPrice);
             if (!priceIsNumeric)
             {
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Could not add product. Price must be numeric.";
+                GenerateError(ProductOutputLabel, "Could not update product. Price must be numeric.");
                 return;
             }
-            if(productPrice < 0.0)
+            if (productPrice < 0.0)
             {
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Could not add product. Price cannot be negative.";
+                GenerateError(ProductOutputLabel, "Could not update product. Price cannot be negative.");
                 return;
             }
 
             /* ----- Pushing Data to the Database -----
              */
 
-            string statement =
-                "INSERT INTO TB_Products " +
-                "VALUES (@Product_ID, @Price, @Category, @Name)";
-
             if (!CreateDatabaseConnection())
             {
                 return;
             }
 
-            SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
-            command.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
-            command.Parameters.AddWithValue("@Price", ProductUpdatePriceInput.Text);
-            command.Parameters.AddWithValue("@Category", ProductUpdateCategoryInput.Text);
-            command.Parameters.AddWithValue("@Name", ProductUpdateNameInput.Text);
+            string selectStatement =
+                "SELECT COUNT(Product_ID) " +
+                "FROM TB_Products " +
+                "WHERE Product_ID = @Product_ID";
 
-            command.ExecuteNonQuery();
-            Connection.Close();
+            /* Checking to see if the product already exists, so we don't attempt to create a new one,
+             * instead we just update the existing one.
+             */
+            SqlCommand selectCommand = new SqlCommand(selectStatement, Connection.GetConnection());
+            selectCommand.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
 
-            ProductOutputLabel.ForeColor = Color.Green;
-            ProductOutputLabel.Text = "Product added successfully.";
+            if ((int) selectCommand.ExecuteScalar() == 0)
+            {
+                /* Creating a new product.
+                 */
+                Connection.Close();
+                if (!CreateDatabaseConnection())
+                {
+                    return;
+                }
+
+                string statement =
+                    "INSERT INTO TB_Products " +
+                    "VALUES (@Product_ID, @Price, @Category, @Name)";
+
+                SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
+                command.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
+                command.Parameters.AddWithValue("@Price", ProductUpdatePriceInput.Text);
+                command.Parameters.AddWithValue("@Category", ProductUpdateCategoryInput.Text);
+                command.Parameters.AddWithValue("@Name", ProductUpdateNameInput.Text);
+
+                if (command.ExecuteNonQuery() <= 0)
+                {
+                    GenerateError(ProductOutputLabel, "Product could not be created.");
+                }
+                else
+                {
+                    GenerateSuccess(ProductOutputLabel, "Product created successfully.");
+                }
+            }
+            else
+            {
+                /* Updating an existing product.
+                 */
+                Connection.Close();
+                if (!CreateDatabaseConnection())
+                {
+                    return;
+                }
+
+                string statement =
+                    "UPDATE TB_Products " +
+                    "SET Product_ID = @Product_ID, Price = @Price, Category = @Category, Name = @Name " +
+                    "WHERE Product_ID = @Product_ID";
+
+                SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
+                command.Parameters.AddWithValue("@Product_ID", ProductUpdateIDInput.Text);
+                command.Parameters.AddWithValue("@Price", ProductUpdatePriceInput.Text);
+                command.Parameters.AddWithValue("@Category", ProductUpdateCategoryInput.Text);
+                command.Parameters.AddWithValue("@Name", ProductUpdateNameInput.Text);
+
+                if(command.ExecuteNonQuery() <= 0)
+                {
+                    GenerateError(ProductOutputLabel, "Product could not be updated.");
+                }
+                else
+                {
+                    GenerateSuccess(ProductOutputLabel, "Product updated successfully.");
+                }
+            }
+
             PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
         }
 
@@ -203,8 +272,7 @@ namespace Final_Project
              */
             if (ProductUpdateIDInput.Text != "" && !int.TryParse(ProductUpdateIDInput.Text, out int id))
             {
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Could not delete product. Invalid ID.";
+                GenerateError(ProductOutputLabel, "Could not delete product. Invalid ID.");
                 return;
             }
 
@@ -234,13 +302,11 @@ namespace Final_Project
 
             if (rowsAffected > 0)
             {
-                ProductOutputLabel.ForeColor = Color.Green;
-                ProductOutputLabel.Text = "Product deleted successfully.";
+                GenerateSuccess(ProductOutputLabel, "Product deleted successfully.");
             }
             else
             {
-                ProductOutputLabel.ForeColor = Color.Brown;
-                ProductOutputLabel.Text = "Cannot delete a product that does not exist.";
+                GenerateError(ProductOutputLabel, "Cannot delete a product that does not exist.");
             }
 
             PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
