@@ -31,23 +31,23 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.NewPasswordInput = new System.Windows.Forms.TextBox();
+            this.ChangePasswordButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ChangeUsernameButton = new System.Windows.Forms.Button();
+            this.NewUsernameInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.FirstNameInput = new System.Windows.Forms.TextBox();
+            this.LastNameInput = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.EmailInput = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.PhoneInput = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.ChangeInformationButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -55,8 +55,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.ChangePasswordButton);
+            this.groupBox1.Controls.Add(this.NewPasswordInput);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 320);
             this.groupBox1.Name = "groupBox1";
@@ -67,14 +67,14 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.ChangeInformationButton);
+            this.groupBox2.Controls.Add(this.PhoneInput);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.EmailInput);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.LastNameInput);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.FirstNameInput);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
@@ -92,36 +92,36 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "New Password:";
             // 
-            // textBox1
+            // NewPasswordInput
             // 
-            this.textBox1.Location = new System.Drawing.Point(93, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 20);
-            this.textBox1.TabIndex = 1;
+            this.NewPasswordInput.Location = new System.Drawing.Point(93, 22);
+            this.NewPasswordInput.Name = "NewPasswordInput";
+            this.NewPasswordInput.Size = new System.Drawing.Size(154, 20);
+            this.NewPasswordInput.TabIndex = 1;
             // 
-            // button1
+            // ChangePasswordButton
             // 
-            this.button1.Location = new System.Drawing.Point(51, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Change Password";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ChangePasswordButton.Location = new System.Drawing.Point(51, 48);
+            this.ChangePasswordButton.Name = "ChangePasswordButton";
+            this.ChangePasswordButton.Size = new System.Drawing.Size(154, 23);
+            this.ChangePasswordButton.TabIndex = 2;
+            this.ChangePasswordButton.Text = "Change Password";
+            this.ChangePasswordButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BackButton
             // 
-            this.button2.Location = new System.Drawing.Point(194, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Back";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BackButton.Location = new System.Drawing.Point(194, 415);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(75, 23);
+            this.BackButton.TabIndex = 2;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.ChangeUsernameButton);
+            this.groupBox3.Controls.Add(this.NewUsernameInput);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Location = new System.Drawing.Point(12, 208);
             this.groupBox3.Name = "groupBox3";
@@ -130,21 +130,21 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Change Username";
             // 
-            // button3
+            // ChangeUsernameButton
             // 
-            this.button3.Location = new System.Drawing.Point(51, 52);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(154, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Change Username";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ChangeUsernameButton.Location = new System.Drawing.Point(51, 48);
+            this.ChangeUsernameButton.Name = "ChangeUsernameButton";
+            this.ChangeUsernameButton.Size = new System.Drawing.Size(154, 23);
+            this.ChangeUsernameButton.TabIndex = 2;
+            this.ChangeUsernameButton.Text = "Change Username";
+            this.ChangeUsernameButton.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // NewUsernameInput
             // 
-            this.textBox2.Location = new System.Drawing.Point(93, 22);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 20);
-            this.textBox2.TabIndex = 1;
+            this.NewUsernameInput.Location = new System.Drawing.Point(93, 22);
+            this.NewUsernameInput.Name = "NewUsernameInput";
+            this.NewUsernameInput.Size = new System.Drawing.Size(154, 20);
+            this.NewUsernameInput.TabIndex = 1;
             // 
             // label2
             // 
@@ -173,19 +173,19 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "First Name:";
             // 
-            // textBox3
+            // FirstNameInput
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 43);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 1;
+            this.FirstNameInput.Location = new System.Drawing.Point(12, 43);
+            this.FirstNameInput.Name = "FirstNameInput";
+            this.FirstNameInput.Size = new System.Drawing.Size(100, 20);
+            this.FirstNameInput.TabIndex = 1;
             // 
-            // textBox4
+            // LastNameInput
             // 
-            this.textBox4.Location = new System.Drawing.Point(147, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 3;
+            this.LastNameInput.Location = new System.Drawing.Point(147, 43);
+            this.LastNameInput.Name = "LastNameInput";
+            this.LastNameInput.Size = new System.Drawing.Size(100, 20);
+            this.LastNameInput.TabIndex = 3;
             // 
             // label5
             // 
@@ -196,12 +196,12 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Last Name:";
             // 
-            // textBox5
+            // EmailInput
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 86);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(235, 20);
-            this.textBox5.TabIndex = 5;
+            this.EmailInput.Location = new System.Drawing.Point(12, 86);
+            this.EmailInput.Name = "EmailInput";
+            this.EmailInput.Size = new System.Drawing.Size(235, 20);
+            this.EmailInput.TabIndex = 5;
             // 
             // label6
             // 
@@ -212,12 +212,12 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Email Address:";
             // 
-            // textBox6
+            // PhoneInput
             // 
-            this.textBox6.Location = new System.Drawing.Point(12, 133);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(235, 20);
-            this.textBox6.TabIndex = 7;
+            this.PhoneInput.Location = new System.Drawing.Point(12, 133);
+            this.PhoneInput.Name = "PhoneInput";
+            this.PhoneInput.Size = new System.Drawing.Size(235, 20);
+            this.PhoneInput.TabIndex = 7;
             // 
             // label7
             // 
@@ -228,14 +228,14 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Phone Number:";
             // 
-            // button4
+            // ChangeInformationButton
             // 
-            this.button4.Location = new System.Drawing.Point(51, 159);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(154, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Change Information";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ChangeInformationButton.Location = new System.Drawing.Point(51, 159);
+            this.ChangeInformationButton.Name = "ChangeInformationButton";
+            this.ChangeInformationButton.Size = new System.Drawing.Size(154, 23);
+            this.ChangeInformationButton.TabIndex = 4;
+            this.ChangeInformationButton.Text = "Change Information";
+            this.ChangeInformationButton.UseVisualStyleBackColor = true;
             // 
             // UserSettings
             // 
@@ -243,7 +243,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(283, 450);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UserSettings";
@@ -262,23 +262,23 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button ChangePasswordButton;
+        private System.Windows.Forms.TextBox NewPasswordInput;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button ChangeUsernameButton;
+        private System.Windows.Forms.TextBox NewUsernameInput;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox EmailInput;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox LastNameInput;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox FirstNameInput;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button ChangeInformationButton;
+        private System.Windows.Forms.TextBox PhoneInput;
         private System.Windows.Forms.Label label7;
     }
 }
