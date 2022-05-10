@@ -315,6 +315,7 @@
             this.Controls.Add(this.LogoutButton);
             this.Controls.Add(this.adminTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximumSize = new System.Drawing.Size(837, 545);
             this.Name = "AdminPortal";
             this.Text = "AdminPortal";
             this.adminTabControl.ResumeLayout(false);

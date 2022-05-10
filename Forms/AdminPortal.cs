@@ -13,11 +13,14 @@ namespace Final_Project
 {
     public partial class AdminPortal : Form
     {
+        string currentUsername;
+
         public AdminPortal(string username)
         {
             InitializeComponent();
 
-            UsernameLabel.Text = username;
+            currentUsername = username;
+            UsernameLabel.Text = currentUsername;
             ProductOutputLabel.Text = "";
 
             PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
@@ -314,7 +317,9 @@ namespace Final_Project
 
         private void UserSettingsButton_Click(object sender, EventArgs e)
         {
-
+            Form settingsForm = new UserSettings(currentUsername, this);
+            this.Hide();
+            settingsForm.Show();
         }
     }
 }
