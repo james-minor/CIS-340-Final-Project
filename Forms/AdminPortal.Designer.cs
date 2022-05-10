@@ -301,6 +301,7 @@
             this.UserSettingsButton.TabIndex = 5;
             this.UserSettingsButton.Text = "My &Account";
             this.UserSettingsButton.UseVisualStyleBackColor = true;
+            this.UserSettingsButton.Click += new System.EventHandler(this.UserSettingsButton_Click);
             // 
             // AdminPortal
             // 

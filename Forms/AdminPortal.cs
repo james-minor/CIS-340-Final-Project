@@ -311,5 +311,10 @@ namespace Final_Project
 
             PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
         }
+
+        private void UserSettingsButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
