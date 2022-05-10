@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ProductPage = new System.Windows.Forms.TabPage();
+            this.ProductDataView = new System.Windows.Forms.DataGridView();
             this.ProductOutputLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ProductDeleteButton = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.ProductPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductDataView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,11 +68,12 @@
             this.tabControl1.Location = new System.Drawing.Point(11, 40);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(798, 180);
+            this.tabControl1.Size = new System.Drawing.Size(798, 478);
             this.tabControl1.TabIndex = 0;
             // 
             // ProductPage
             // 
+            this.ProductPage.Controls.Add(this.ProductDataView);
             this.ProductPage.Controls.Add(this.ProductOutputLabel);
             this.ProductPage.Controls.Add(this.groupBox1);
             this.ProductPage.Controls.Add(this.ProductSearchButton);
@@ -81,10 +84,21 @@
             this.ProductPage.Location = new System.Drawing.Point(4, 22);
             this.ProductPage.Name = "ProductPage";
             this.ProductPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ProductPage.Size = new System.Drawing.Size(790, 154);
+            this.ProductPage.Size = new System.Drawing.Size(790, 452);
             this.ProductPage.TabIndex = 0;
             this.ProductPage.Text = "Products";
             this.ProductPage.UseVisualStyleBackColor = true;
+            // 
+            // ProductDataView
+            // 
+            this.ProductDataView.AllowUserToAddRows = false;
+            this.ProductDataView.AllowUserToDeleteRows = false;
+            this.ProductDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductDataView.Location = new System.Drawing.Point(9, 161);
+            this.ProductDataView.Name = "ProductDataView";
+            this.ProductDataView.ReadOnly = true;
+            this.ProductDataView.Size = new System.Drawing.Size(775, 285);
+            this.ProductDataView.TabIndex = 5;
             // 
             // ProductOutputLabel
             // 
@@ -110,7 +124,7 @@
             this.groupBox1.Controls.Add(this.ProductUpdateIDInput);
             this.groupBox1.Location = new System.Drawing.Point(9, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(775, 127);
+            this.groupBox1.Size = new System.Drawing.Size(775, 97);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create Product";
@@ -246,7 +260,7 @@
             this.UserPage.Location = new System.Drawing.Point(4, 22);
             this.UserPage.Name = "UserPage";
             this.UserPage.Padding = new System.Windows.Forms.Padding(3);
-            this.UserPage.Size = new System.Drawing.Size(790, 154);
+            this.UserPage.Size = new System.Drawing.Size(790, 452);
             this.UserPage.TabIndex = 1;
             this.UserPage.Text = "Users";
             this.UserPage.UseVisualStyleBackColor = true;
@@ -255,7 +269,7 @@
             // 
             this.InvoicePage.Location = new System.Drawing.Point(4, 22);
             this.InvoicePage.Name = "InvoicePage";
-            this.InvoicePage.Size = new System.Drawing.Size(790, 154);
+            this.InvoicePage.Size = new System.Drawing.Size(790, 452);
             this.InvoicePage.TabIndex = 2;
             this.InvoicePage.Text = "Invoices";
             this.InvoicePage.UseVisualStyleBackColor = true;
@@ -302,7 +316,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 232);
+            this.ClientSize = new System.Drawing.Size(821, 526);
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ExitButton);
@@ -314,6 +328,7 @@
             this.tabControl1.ResumeLayout(false);
             this.ProductPage.ResumeLayout(false);
             this.ProductPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductDataView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -348,5 +363,6 @@
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label UsernameLabel;
+        private System.Windows.Forms.DataGridView ProductDataView;
     }
 }
