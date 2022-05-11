@@ -47,6 +47,38 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ProductSearchIDInput = new System.Windows.Forms.TextBox();
             this.UserPage = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.CreateUserTeacherCheckBox = new System.Windows.Forms.CheckBox();
+            this.CreateUserButton = new System.Windows.Forms.Button();
+            this.CreateUserVeteranCheckBox = new System.Windows.Forms.CheckBox();
+            this.CreateUserSeniorCheckBox = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CreateUserAdminCheckBox = new System.Windows.Forms.CheckBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.UserDataView = new System.Windows.Forms.DataGridView();
+            this.UserOutputLabel = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.UpdateUserTeacherCheckbox = new System.Windows.Forms.CheckBox();
+            this.UpdateUserVeteranCheckbox = new System.Windows.Forms.CheckBox();
+            this.UpdateUserSeniorCheckbox = new System.Windows.Forms.CheckBox();
+            this.UpdateUserAdminCheckbox = new System.Windows.Forms.CheckBox();
+            this.DeleteUserButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.UpdateUserUsernameInput = new System.Windows.Forms.TextBox();
+            this.UpdateUserButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.UpdateUserEmailInput = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.UpdateUserLastNameInput = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.UpdateUserPhoneInput = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.UpdateUserFirstNameInput = new System.Windows.Forms.TextBox();
+            this.UserSearchButton = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.SearchUserUsernameInput = new System.Windows.Forms.TextBox();
             this.InvoicePage = new System.Windows.Forms.TabPage();
             this.LogoutButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
@@ -57,6 +89,10 @@
             this.ProductPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataView)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.UserPage.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserDataView)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // adminTabControl
@@ -238,6 +274,13 @@
             // 
             // UserPage
             // 
+            this.UserPage.Controls.Add(this.groupBox3);
+            this.UserPage.Controls.Add(this.UserDataView);
+            this.UserPage.Controls.Add(this.UserOutputLabel);
+            this.UserPage.Controls.Add(this.groupBox2);
+            this.UserPage.Controls.Add(this.UserSearchButton);
+            this.UserPage.Controls.Add(this.label12);
+            this.UserPage.Controls.Add(this.SearchUserUsernameInput);
             this.UserPage.Location = new System.Drawing.Point(4, 22);
             this.UserPage.Name = "UserPage";
             this.UserPage.Padding = new System.Windows.Forms.Padding(3);
@@ -245,6 +288,316 @@
             this.UserPage.TabIndex = 1;
             this.UserPage.Text = "Users";
             this.UserPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.CreateUserTeacherCheckBox);
+            this.groupBox3.Controls.Add(this.CreateUserButton);
+            this.groupBox3.Controls.Add(this.CreateUserVeteranCheckBox);
+            this.groupBox3.Controls.Add(this.CreateUserSeniorCheckBox);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.CreateUserAdminCheckBox);
+            this.groupBox3.Controls.Add(this.textBox8);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.textBox10);
+            this.groupBox3.Location = new System.Drawing.Point(9, 137);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(775, 97);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Create New User";
+            // 
+            // CreateUserTeacherCheckBox
+            // 
+            this.CreateUserTeacherCheckBox.AutoSize = true;
+            this.CreateUserTeacherCheckBox.Location = new System.Drawing.Point(280, 70);
+            this.CreateUserTeacherCheckBox.Name = "CreateUserTeacherCheckBox";
+            this.CreateUserTeacherCheckBox.Size = new System.Drawing.Size(66, 17);
+            this.CreateUserTeacherCheckBox.TabIndex = 19;
+            this.CreateUserTeacherCheckBox.Text = "Teacher";
+            this.CreateUserTeacherCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // CreateUserButton
+            // 
+            this.CreateUserButton.Location = new System.Drawing.Point(55, 39);
+            this.CreateUserButton.Name = "CreateUserButton";
+            this.CreateUserButton.Size = new System.Drawing.Size(126, 23);
+            this.CreateUserButton.TabIndex = 11;
+            this.CreateUserButton.Text = "Create New User";
+            this.CreateUserButton.UseVisualStyleBackColor = true;
+            // 
+            // CreateUserVeteranCheckBox
+            // 
+            this.CreateUserVeteranCheckBox.AutoSize = true;
+            this.CreateUserVeteranCheckBox.Location = new System.Drawing.Point(200, 70);
+            this.CreateUserVeteranCheckBox.Name = "CreateUserVeteranCheckBox";
+            this.CreateUserVeteranCheckBox.Size = new System.Drawing.Size(63, 17);
+            this.CreateUserVeteranCheckBox.TabIndex = 18;
+            this.CreateUserVeteranCheckBox.Text = "Veteran";
+            this.CreateUserVeteranCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // CreateUserSeniorCheckBox
+            // 
+            this.CreateUserSeniorCheckBox.AutoSize = true;
+            this.CreateUserSeniorCheckBox.Location = new System.Drawing.Point(127, 70);
+            this.CreateUserSeniorCheckBox.Name = "CreateUserSeniorCheckBox";
+            this.CreateUserSeniorCheckBox.Size = new System.Drawing.Size(56, 17);
+            this.CreateUserSeniorCheckBox.TabIndex = 17;
+            this.CreateUserSeniorCheckBox.Text = "Senior";
+            this.CreateUserSeniorCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(184, 25);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(108, 13);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Generated Username";
+            // 
+            // CreateUserAdminCheckBox
+            // 
+            this.CreateUserAdminCheckBox.AutoSize = true;
+            this.CreateUserAdminCheckBox.Location = new System.Drawing.Point(55, 70);
+            this.CreateUserAdminCheckBox.Name = "CreateUserAdminCheckBox";
+            this.CreateUserAdminCheckBox.Size = new System.Drawing.Size(55, 17);
+            this.CreateUserAdminCheckBox.TabIndex = 16;
+            this.CreateUserAdminCheckBox.Text = "Admin";
+            this.CreateUserAdminCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(187, 41);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(258, 20);
+            this.textBox8.TabIndex = 6;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(448, 26);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(106, 13);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Generated Password";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(451, 42);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(258, 20);
+            this.textBox10.TabIndex = 2;
+            // 
+            // UserDataView
+            // 
+            this.UserDataView.AllowUserToAddRows = false;
+            this.UserDataView.AllowUserToDeleteRows = false;
+            this.UserDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UserDataView.Location = new System.Drawing.Point(9, 240);
+            this.UserDataView.Name = "UserDataView";
+            this.UserDataView.ReadOnly = true;
+            this.UserDataView.Size = new System.Drawing.Size(775, 182);
+            this.UserDataView.TabIndex = 14;
+            // 
+            // UserOutputLabel
+            // 
+            this.UserOutputLabel.AutoSize = true;
+            this.UserOutputLabel.ForeColor = System.Drawing.Color.Brown;
+            this.UserOutputLabel.Location = new System.Drawing.Point(510, 13);
+            this.UserOutputLabel.Name = "UserOutputLabel";
+            this.UserOutputLabel.Size = new System.Drawing.Size(100, 13);
+            this.UserOutputLabel.TabIndex = 16;
+            this.UserOutputLabel.Text = "Could not Find User";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.UpdateUserTeacherCheckbox);
+            this.groupBox2.Controls.Add(this.UpdateUserVeteranCheckbox);
+            this.groupBox2.Controls.Add(this.UpdateUserSeniorCheckbox);
+            this.groupBox2.Controls.Add(this.UpdateUserAdminCheckbox);
+            this.groupBox2.Controls.Add(this.DeleteUserButton);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.UpdateUserUsernameInput);
+            this.groupBox2.Controls.Add(this.UpdateUserButton);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.UpdateUserEmailInput);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.UpdateUserLastNameInput);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.UpdateUserPhoneInput);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.UpdateUserFirstNameInput);
+            this.groupBox2.Location = new System.Drawing.Point(9, 34);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(775, 97);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Update Existing User";
+            // 
+            // UpdateUserTeacherCheckbox
+            // 
+            this.UpdateUserTeacherCheckbox.AutoSize = true;
+            this.UpdateUserTeacherCheckbox.Location = new System.Drawing.Point(280, 69);
+            this.UpdateUserTeacherCheckbox.Name = "UpdateUserTeacherCheckbox";
+            this.UpdateUserTeacherCheckbox.Size = new System.Drawing.Size(66, 17);
+            this.UpdateUserTeacherCheckbox.TabIndex = 15;
+            this.UpdateUserTeacherCheckbox.Text = "Teacher";
+            this.UpdateUserTeacherCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // UpdateUserVeteranCheckbox
+            // 
+            this.UpdateUserVeteranCheckbox.AutoSize = true;
+            this.UpdateUserVeteranCheckbox.Location = new System.Drawing.Point(200, 69);
+            this.UpdateUserVeteranCheckbox.Name = "UpdateUserVeteranCheckbox";
+            this.UpdateUserVeteranCheckbox.Size = new System.Drawing.Size(63, 17);
+            this.UpdateUserVeteranCheckbox.TabIndex = 14;
+            this.UpdateUserVeteranCheckbox.Text = "Veteran";
+            this.UpdateUserVeteranCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // UpdateUserSeniorCheckbox
+            // 
+            this.UpdateUserSeniorCheckbox.AutoSize = true;
+            this.UpdateUserSeniorCheckbox.Location = new System.Drawing.Point(127, 69);
+            this.UpdateUserSeniorCheckbox.Name = "UpdateUserSeniorCheckbox";
+            this.UpdateUserSeniorCheckbox.Size = new System.Drawing.Size(56, 17);
+            this.UpdateUserSeniorCheckbox.TabIndex = 13;
+            this.UpdateUserSeniorCheckbox.Text = "Senior";
+            this.UpdateUserSeniorCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // UpdateUserAdminCheckbox
+            // 
+            this.UpdateUserAdminCheckbox.AutoSize = true;
+            this.UpdateUserAdminCheckbox.Location = new System.Drawing.Point(55, 69);
+            this.UpdateUserAdminCheckbox.Name = "UpdateUserAdminCheckbox";
+            this.UpdateUserAdminCheckbox.Size = new System.Drawing.Size(55, 17);
+            this.UpdateUserAdminCheckbox.TabIndex = 12;
+            this.UpdateUserAdminCheckbox.Text = "Admin";
+            this.UpdateUserAdminCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // DeleteUserButton
+            // 
+            this.DeleteUserButton.Location = new System.Drawing.Point(583, 65);
+            this.DeleteUserButton.Name = "DeleteUserButton";
+            this.DeleteUserButton.Size = new System.Drawing.Size(126, 23);
+            this.DeleteUserButton.TabIndex = 11;
+            this.DeleteUserButton.Text = "Delete User";
+            this.DeleteUserButton.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(52, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Username *";
+            // 
+            // UpdateUserUsernameInput
+            // 
+            this.UpdateUserUsernameInput.Location = new System.Drawing.Point(55, 39);
+            this.UpdateUserUsernameInput.Name = "UpdateUserUsernameInput";
+            this.UpdateUserUsernameInput.Size = new System.Drawing.Size(126, 20);
+            this.UpdateUserUsernameInput.TabIndex = 9;
+            // 
+            // UpdateUserButton
+            // 
+            this.UpdateUserButton.Location = new System.Drawing.Point(451, 65);
+            this.UpdateUserButton.Name = "UpdateUserButton";
+            this.UpdateUserButton.Size = new System.Drawing.Size(126, 23);
+            this.UpdateUserButton.TabIndex = 8;
+            this.UpdateUserButton.Text = "Update User Information";
+            this.UpdateUserButton.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(448, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Email Address";
+            // 
+            // UpdateUserEmailInput
+            // 
+            this.UpdateUserEmailInput.Location = new System.Drawing.Point(451, 39);
+            this.UpdateUserEmailInput.Name = "UpdateUserEmailInput";
+            this.UpdateUserEmailInput.Size = new System.Drawing.Size(126, 20);
+            this.UpdateUserEmailInput.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(316, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Last Name";
+            // 
+            // UpdateUserLastNameInput
+            // 
+            this.UpdateUserLastNameInput.Location = new System.Drawing.Point(319, 39);
+            this.UpdateUserLastNameInput.Name = "UpdateUserLastNameInput";
+            this.UpdateUserLastNameInput.Size = new System.Drawing.Size(126, 20);
+            this.UpdateUserLastNameInput.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(580, 23);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Phone Number";
+            // 
+            // UpdateUserPhoneInput
+            // 
+            this.UpdateUserPhoneInput.Location = new System.Drawing.Point(583, 39);
+            this.UpdateUserPhoneInput.Name = "UpdateUserPhoneInput";
+            this.UpdateUserPhoneInput.Size = new System.Drawing.Size(126, 20);
+            this.UpdateUserPhoneInput.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(184, 23);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "First Name";
+            // 
+            // UpdateUserFirstNameInput
+            // 
+            this.UpdateUserFirstNameInput.Location = new System.Drawing.Point(187, 39);
+            this.UpdateUserFirstNameInput.Name = "UpdateUserFirstNameInput";
+            this.UpdateUserFirstNameInput.Size = new System.Drawing.Size(126, 20);
+            this.UpdateUserFirstNameInput.TabIndex = 0;
+            // 
+            // UserSearchButton
+            // 
+            this.UserSearchButton.Location = new System.Drawing.Point(341, 10);
+            this.UserSearchButton.Name = "UserSearchButton";
+            this.UserSearchButton.Size = new System.Drawing.Size(163, 20);
+            this.UserSearchButton.TabIndex = 13;
+            this.UserSearchButton.Text = "Search for User";
+            this.UserSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(95, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Search Username:";
+            // 
+            // SearchUserUsernameInput
+            // 
+            this.SearchUserUsernameInput.Location = new System.Drawing.Point(127, 10);
+            this.SearchUserUsernameInput.Name = "SearchUserUsernameInput";
+            this.SearchUserUsernameInput.Size = new System.Drawing.Size(208, 20);
+            this.SearchUserUsernameInput.TabIndex = 11;
             // 
             // InvoicePage
             // 
@@ -317,13 +670,20 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximumSize = new System.Drawing.Size(837, 545);
             this.Name = "AdminPortal";
-            this.Text = "AdminPortal";
+            this.Text = "Admin Portal";
             this.adminTabControl.ResumeLayout(false);
             this.ProductPage.ResumeLayout(false);
             this.ProductPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.UserPage.ResumeLayout(false);
+            this.UserPage.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserDataView)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,5 +716,37 @@
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.DataGridView ProductDataView;
         private System.Windows.Forms.Button UserSettingsButton;
+        private System.Windows.Forms.DataGridView UserDataView;
+        private System.Windows.Forms.Label UserOutputLabel;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button UpdateUserButton;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox UpdateUserEmailInput;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox UpdateUserLastNameInput;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox UpdateUserPhoneInput;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox UpdateUserFirstNameInput;
+        private System.Windows.Forms.Button UserSearchButton;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox SearchUserUsernameInput;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox UpdateUserUsernameInput;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button CreateUserButton;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button DeleteUserButton;
+        private System.Windows.Forms.CheckBox UpdateUserTeacherCheckbox;
+        private System.Windows.Forms.CheckBox UpdateUserVeteranCheckbox;
+        private System.Windows.Forms.CheckBox UpdateUserSeniorCheckbox;
+        private System.Windows.Forms.CheckBox UpdateUserAdminCheckbox;
+        private System.Windows.Forms.CheckBox CreateUserTeacherCheckBox;
+        private System.Windows.Forms.CheckBox CreateUserVeteranCheckBox;
+        private System.Windows.Forms.CheckBox CreateUserSeniorCheckBox;
+        private System.Windows.Forms.CheckBox CreateUserAdminCheckBox;
     }
 }
