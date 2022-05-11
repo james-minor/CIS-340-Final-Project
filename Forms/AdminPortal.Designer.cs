@@ -131,7 +131,8 @@
             this.ProductDataView.Name = "ProductDataView";
             this.ProductDataView.ReadOnly = true;
             this.ProductDataView.Size = new System.Drawing.Size(775, 285);
-            this.ProductDataView.TabIndex = 5;
+            this.ProductDataView.TabIndex = 10;
+            this.ProductDataView.TabStop = false;
             // 
             // ProductOutputLabel
             // 
@@ -167,7 +168,7 @@
             this.ProductDeleteButton.Location = new System.Drawing.Point(382, 65);
             this.ProductDeleteButton.Name = "ProductDeleteButton";
             this.ProductDeleteButton.Size = new System.Drawing.Size(258, 23);
-            this.ProductDeleteButton.TabIndex = 9;
+            this.ProductDeleteButton.TabIndex = 7;
             this.ProductDeleteButton.Text = "Delete Product";
             this.ProductDeleteButton.UseVisualStyleBackColor = true;
             this.ProductDeleteButton.Click += new System.EventHandler(this.ProductDeleteButton_Click);
@@ -177,7 +178,7 @@
             this.ProductCreateButton.Location = new System.Drawing.Point(118, 65);
             this.ProductCreateButton.Name = "ProductCreateButton";
             this.ProductCreateButton.Size = new System.Drawing.Size(258, 23);
-            this.ProductCreateButton.TabIndex = 8;
+            this.ProductCreateButton.TabIndex = 6;
             this.ProductCreateButton.Text = "Create / Update Product";
             this.ProductCreateButton.UseVisualStyleBackColor = true;
             this.ProductCreateButton.Click += new System.EventHandler(this.ProductCreateButton_Click);
@@ -196,7 +197,7 @@
             this.ProductUpdateCategoryInput.Location = new System.Drawing.Point(382, 39);
             this.ProductUpdateCategoryInput.Name = "ProductUpdateCategoryInput";
             this.ProductUpdateCategoryInput.Size = new System.Drawing.Size(126, 20);
-            this.ProductUpdateCategoryInput.TabIndex = 6;
+            this.ProductUpdateCategoryInput.TabIndex = 4;
             // 
             // label5
             // 
@@ -212,7 +213,7 @@
             this.ProductUpdatePriceInput.Location = new System.Drawing.Point(250, 39);
             this.ProductUpdatePriceInput.Name = "ProductUpdatePriceInput";
             this.ProductUpdatePriceInput.Size = new System.Drawing.Size(126, 20);
-            this.ProductUpdatePriceInput.TabIndex = 4;
+            this.ProductUpdatePriceInput.TabIndex = 3;
             // 
             // label4
             // 
@@ -228,7 +229,7 @@
             this.ProductUpdateNameInput.Location = new System.Drawing.Point(514, 39);
             this.ProductUpdateNameInput.Name = "ProductUpdateNameInput";
             this.ProductUpdateNameInput.Size = new System.Drawing.Size(126, 20);
-            this.ProductUpdateNameInput.TabIndex = 2;
+            this.ProductUpdateNameInput.TabIndex = 5;
             // 
             // label3
             // 
@@ -244,14 +245,14 @@
             this.ProductUpdateIDInput.Location = new System.Drawing.Point(118, 39);
             this.ProductUpdateIDInput.Name = "ProductUpdateIDInput";
             this.ProductUpdateIDInput.Size = new System.Drawing.Size(126, 20);
-            this.ProductUpdateIDInput.TabIndex = 0;
+            this.ProductUpdateIDInput.TabIndex = 2;
             // 
             // ProductSearchButton
             // 
             this.ProductSearchButton.Location = new System.Drawing.Point(341, 10);
             this.ProductSearchButton.Name = "ProductSearchButton";
             this.ProductSearchButton.Size = new System.Drawing.Size(163, 20);
-            this.ProductSearchButton.TabIndex = 4;
+            this.ProductSearchButton.TabIndex = 1;
             this.ProductSearchButton.Text = "Search for Product";
             this.ProductSearchButton.UseVisualStyleBackColor = true;
             this.ProductSearchButton.Click += new System.EventHandler(this.ProductSearchButton_Click);
@@ -373,6 +374,7 @@
             this.GeneratedUserUsernameTextBox.ReadOnly = true;
             this.GeneratedUserUsernameTextBox.Size = new System.Drawing.Size(258, 20);
             this.GeneratedUserUsernameTextBox.TabIndex = 6;
+            this.GeneratedUserUsernameTextBox.TabStop = false;
             // 
             // label16
             // 
@@ -390,6 +392,7 @@
             this.GeneratedUserPasswordTextBox.ReadOnly = true;
             this.GeneratedUserPasswordTextBox.Size = new System.Drawing.Size(258, 20);
             this.GeneratedUserPasswordTextBox.TabIndex = 2;
+            this.GeneratedUserPasswordTextBox.TabStop = false;
             // 
             // UserDataView
             // 
