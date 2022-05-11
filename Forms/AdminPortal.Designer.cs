@@ -36,7 +36,6 @@
             this.ProductDeleteButton = new System.Windows.Forms.Button();
             this.ProductCreateButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.ProductUpdateCategoryInput = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ProductUpdatePriceInput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -85,6 +84,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.UserSettingsButton = new System.Windows.Forms.Button();
+            this.ProductUpdateCategoryInput = new System.Windows.Forms.ComboBox();
             this.adminTabControl.SuspendLayout();
             this.ProductPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDataView)).BeginInit();
@@ -146,10 +146,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ProductUpdateCategoryInput);
             this.groupBox1.Controls.Add(this.ProductDeleteButton);
             this.groupBox1.Controls.Add(this.ProductCreateButton);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.ProductUpdateCategoryInput);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.ProductUpdatePriceInput);
             this.groupBox1.Controls.Add(this.label4);
@@ -191,13 +191,6 @@
             this.label6.Size = new System.Drawing.Size(89, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "Product Category";
-            // 
-            // ProductUpdateCategoryInput
-            // 
-            this.ProductUpdateCategoryInput.Location = new System.Drawing.Point(382, 39);
-            this.ProductUpdateCategoryInput.Name = "ProductUpdateCategoryInput";
-            this.ProductUpdateCategoryInput.Size = new System.Drawing.Size(126, 20);
-            this.ProductUpdateCategoryInput.TabIndex = 4;
             // 
             // label5
             // 
@@ -663,6 +656,19 @@
             this.UserSettingsButton.UseVisualStyleBackColor = true;
             this.UserSettingsButton.Click += new System.EventHandler(this.UserSettingsButton_Click);
             // 
+            // ProductUpdateCategoryInput
+            // 
+            this.ProductUpdateCategoryInput.FormattingEnabled = true;
+            this.ProductUpdateCategoryInput.Items.AddRange(new object[] {
+            "Books",
+            "Clothing",
+            "Grocery",
+            "Music Instruments"});
+            this.ProductUpdateCategoryInput.Location = new System.Drawing.Point(382, 39);
+            this.ProductUpdateCategoryInput.Name = "ProductUpdateCategoryInput";
+            this.ProductUpdateCategoryInput.Size = new System.Drawing.Size(126, 21);
+            this.ProductUpdateCategoryInput.TabIndex = 8;
+            // 
             // AdminPortal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -711,7 +717,6 @@
         private System.Windows.Forms.Button ProductDeleteButton;
         private System.Windows.Forms.Button ProductCreateButton;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox ProductUpdateCategoryInput;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox ProductUpdatePriceInput;
         private System.Windows.Forms.Label label4;
@@ -755,5 +760,6 @@
         private System.Windows.Forms.CheckBox CreateUserVeteranCheckBox;
         private System.Windows.Forms.CheckBox CreateUserSeniorCheckBox;
         private System.Windows.Forms.CheckBox CreateUserAdminCheckBox;
+        private System.Windows.Forms.ComboBox ProductUpdateCategoryInput;
     }
 }
