@@ -21,7 +21,9 @@ namespace Final_Project
 
             currentUsername = username;
             UsernameLabel.Text = currentUsername;
+
             ProductOutputLabel.Text = "";
+            UserOutputLabel.Text = "";
 
             PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
         }
@@ -29,18 +31,20 @@ namespace Final_Project
         /* Attempts to create a connection to the SQL Database using the Connection class.
          * If any errors are encountered, they are output to the ProductOutputLabel, and
          * CreateDatabaseConnection will return FALSE.
+         * 
+         * outputLabel:         The Label to output any errors to.
          */
-        private bool CreateDatabaseConnection()
+        private bool CreateDatabaseConnection(Label outputLabel)
         {
             if (!Connection.Create())
             {
-                GenerateError(ProductOutputLabel, "A Connection to the DB Could not be Established.");
+                GenerateError(outputLabel, "A Connection to the DB Could not be Established.");
                 return false;
             }
 
             if (!Connection.Open())
             {
-                GenerateError(ProductOutputLabel, "Internal Database Error.");
+                GenerateError(outputLabel, "Internal Database Error.");
                 return false;
             }
 
@@ -56,7 +60,7 @@ namespace Final_Project
         {
             /* Attempting to create a Database Connection.
              */
-            if(!CreateDatabaseConnection())
+            if(!CreateDatabaseConnection(ProductOutputLabel))
             {
                 return;
             }
@@ -142,7 +146,7 @@ namespace Final_Project
 
             /* Attempting to create a Database Connection.
              */
-            if (!CreateDatabaseConnection())
+            if (!CreateDatabaseConnection(ProductOutputLabel))
             {
                 return;
             }
@@ -202,7 +206,7 @@ namespace Final_Project
             /* ----- Pushing Data to the Database -----
              */
 
-            if (!CreateDatabaseConnection())
+            if (!CreateDatabaseConnection(ProductOutputLabel))
             {
                 return;
             }
@@ -223,7 +227,7 @@ namespace Final_Project
                 /* Creating a new product.
                  */
                 Connection.Close();
-                if (!CreateDatabaseConnection())
+                if (!CreateDatabaseConnection(ProductOutputLabel))
                 {
                     return;
                 }
@@ -252,7 +256,7 @@ namespace Final_Project
                 /* Updating an existing product.
                  */
                 Connection.Close();
-                if (!CreateDatabaseConnection())
+                if (!CreateDatabaseConnection(ProductOutputLabel))
                 {
                     return;
                 }
@@ -300,7 +304,7 @@ namespace Final_Project
 
             /* Attempting to create a Database Connection.
              */
-            if (!CreateDatabaseConnection())
+            if (!CreateDatabaseConnection(ProductOutputLabel))
             {
                 return;
             }
@@ -333,5 +337,6 @@ namespace Final_Project
             this.Hide();
             settingsForm.Show();
         }
+
     }
 }
