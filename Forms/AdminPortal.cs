@@ -372,7 +372,57 @@ namespace Final_Project
         
         private void UserSearchButton_Click(object sender, EventArgs e)
         {
+            /* Sanitizing the input data before attempting a database connection.
+             */
+            if (SearchUserUsernameInput.Text == "")
+            {
+                GenerateError(UserOutputLabel, "Invalid Username.");
+                return;
+            }
 
+            /* SELECT statement to get the user information.
+             */
+            string statement =
+                "SELECT Username, First_Name, Last_Name, Phone, Email, IsAdmin, IsVeteran, IsSenior, IsTeacher " +
+                "FROM TB_Users " +
+                "WHERE Username = @Username";
+
+            /* Attempting to create a Database Connection.
+             */
+            if (!CreateDatabaseConnection(ProductOutputLabel))
+            {
+                return;
+            }
+
+            /* Adding in the values for the SELECT statement parameters.
+             */
+            SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
+            command.Parameters.AddWithValue("@Username", SearchUserUsernameInput.Text);
+
+            using SqlDataReader reader = command.ExecuteReader(
+                CommandBehavior.SingleRow & CommandBehavior.CloseConnection);
+
+            if (reader.Read())
+            {
+                GenerateSuccess(UserOutputLabel, "User found successfully.");
+
+                UpdateUserUsernameInput.Text = Convert.ToString(reader["Username"]);
+                UpdateUserFirstNameInput.Text = Convert.ToString(reader["First_Name"]);
+                UpdateUserLastNameInput.Text = Convert.ToString(reader["Last_Name"]);
+                UpdateUserPhoneInput.Text = Convert.ToString(reader["Phone"]);
+                UpdateUserEmailInput.Text = Convert.ToString(reader["Email"]);
+
+                UpdateUserAdminCheckbox.Checked = Convert.ToBoolean(reader["IsAdmin"]);
+                UpdateUserVeteranCheckbox.Checked = Convert.ToBoolean(reader["IsVeteran"]);
+                UpdateUserSeniorCheckbox.Checked = Convert.ToBoolean(reader["IsSenior"]);
+                UpdateUserTeacherCheckbox.Checked = Convert.ToBoolean(reader["IsTeacher"]);
+            }
+            else
+            {
+                GenerateError(UserOutputLabel, "User could not be found.");
+            }
+
+            Connection.Close();
         }
 
         private void UpdateUserButton_Click(object sender, EventArgs e)
@@ -382,7 +432,7 @@ namespace Final_Project
 
         private void DeleteUserButton_Click(object sender, EventArgs e)
         {
-
+            // TODO: Prevent user from deleting the currentUsername
         }
 
         private void CreateUserButton_Click(object sender, EventArgs e)
