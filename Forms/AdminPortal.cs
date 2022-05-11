@@ -73,6 +73,18 @@ namespace Final_Project
             table.Columns["Product_ID"].ColumnName = "ID";
 
             dataView.DataSource = table;
+
+            /* Styling the DataGridView columns.
+             */
+            dataView.Columns[0].FillWeight = 50;
+            dataView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataView.Columns[1].FillWeight = 50;
+            dataView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataView.Columns[1].DefaultCellStyle.Format = "c";
+            dataView.Columns[2].FillWeight = 100;
+            dataView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataView.Columns[3].FillWeight = 100;
+            dataView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         /* Outputs a passed string to a passed label, setting the proper formatting for the label -
