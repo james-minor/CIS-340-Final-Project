@@ -26,6 +26,47 @@ namespace Final_Project
             UserOutputLabel.Text = "";
 
             PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
+            PopulateDataGrid(UserDataView, "SELECT Username, First_Name, Last_Name, Phone, Email, IsAdmin, IsVeteran, IsSenior, IsTeacher FROM TB_Users");
+
+            /* Styling the Product DataGridView.
+             */
+            int[] productDataViewColumnWeights =
+{
+                50, 50, 100, 100
+            };
+
+            for (int i = 0; i < productDataViewColumnWeights.Length; i++)
+            {
+                ProductDataView.Columns[i].FillWeight = productDataViewColumnWeights[i];
+                ProductDataView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+            ProductDataView.Columns[0].HeaderText = "ID";
+            ProductDataView.Columns[1].DefaultCellStyle.Format = "c";
+
+            /* Styling the User DataGridView
+             */
+            int[] userDataViewColumnWeights =
+            {
+                50, 40, 40, 32, 65, 25, 25, 25, 25
+            };
+
+            for(int i = 0; i < userDataViewColumnWeights.Length; i++)
+            {
+                UserDataView.Columns[i].FillWeight = userDataViewColumnWeights[i];
+                UserDataView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+            UserDataView.Columns[1].HeaderText = "First Name";
+            UserDataView.Columns[2].HeaderText = "Last Name";
+            UserDataView.Columns[5].HeaderText = "Admin";
+            UserDataView.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            UserDataView.Columns[6].HeaderText = "Veteran";
+            UserDataView.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            UserDataView.Columns[7].HeaderText = "Senior";
+            UserDataView.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            UserDataView.Columns[8].HeaderText = "Teacher";
+            UserDataView.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         /* Attempts to create a connection to the SQL Database using the Connection class.
@@ -72,23 +113,7 @@ namespace Final_Project
             adapter.Fill(table);
             Connection.Close();
 
-            /* Reformatting and changing settings on the generated data table before pushing it to the form.
-             */
-            table.Columns["Product_ID"].ColumnName = "ID";
-
             dataView.DataSource = table;
-
-            /* Styling the DataGridView columns.
-             */
-            dataView.Columns[0].FillWeight = 50;
-            dataView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataView.Columns[1].FillWeight = 50;
-            dataView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataView.Columns[1].DefaultCellStyle.Format = "c";
-            dataView.Columns[2].FillWeight = 100;
-            dataView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataView.Columns[3].FillWeight = 100;
-            dataView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         /* Outputs a passed string to a passed label, setting the proper formatting for the label -
@@ -115,6 +140,15 @@ namespace Final_Project
             outputLabel.Text = outputString;
         }
 
+        /* ------- Global Form Buttons -------
+         */
+        private void UserSettingsButton_Click(object sender, EventArgs e)
+        {
+            Form settingsForm = new UserSettings(currentUsername, this);
+            this.Hide();
+            settingsForm.Show();
+        }
+
         private void LogoutButton_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
@@ -127,6 +161,8 @@ namespace Final_Project
             Environment.Exit(0);
         }
 
+        /* ------- Product Tab Functions -------
+         */
         private void ProductSearchButton_Click(object sender, EventArgs e)
         {
             /* Sanitizing the input data before attempting a database connection.
@@ -331,12 +367,27 @@ namespace Final_Project
             PopulateDataGrid(ProductDataView, "SELECT * FROM TB_Products");
         }
 
-        private void UserSettingsButton_Click(object sender, EventArgs e)
+        /* ------- User Tab Functions -------
+         */
+        
+        private void UserSearchButton_Click(object sender, EventArgs e)
         {
-            Form settingsForm = new UserSettings(currentUsername, this);
-            this.Hide();
-            settingsForm.Show();
+
         }
 
+        private void UpdateUserButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteUserButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateUserButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

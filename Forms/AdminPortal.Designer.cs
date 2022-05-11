@@ -325,6 +325,7 @@
             this.CreateUserButton.TabIndex = 11;
             this.CreateUserButton.Text = "Create New User";
             this.CreateUserButton.UseVisualStyleBackColor = true;
+            this.CreateUserButton.Click += new System.EventHandler(this.CreateUserButton_Click);
             // 
             // CreateUserVeteranCheckBox
             // 
@@ -484,6 +485,7 @@
             this.DeleteUserButton.TabIndex = 11;
             this.DeleteUserButton.Text = "Delete User";
             this.DeleteUserButton.UseVisualStyleBackColor = true;
+            this.DeleteUserButton.Click += new System.EventHandler(this.DeleteUserButton_Click);
             // 
             // label2
             // 
@@ -509,6 +511,7 @@
             this.UpdateUserButton.TabIndex = 8;
             this.UpdateUserButton.Text = "Update User Information";
             this.UpdateUserButton.UseVisualStyleBackColor = true;
+            this.UpdateUserButton.Click += new System.EventHandler(this.UpdateUserButton_Click);
             // 
             // label8
             // 
@@ -582,6 +585,7 @@
             this.UserSearchButton.TabIndex = 13;
             this.UserSearchButton.Text = "Search for User";
             this.UserSearchButton.UseVisualStyleBackColor = true;
+            this.UserSearchButton.Click += new System.EventHandler(this.UserSearchButton_Click);
             // 
             // label12
             // 
