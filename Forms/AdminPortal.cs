@@ -425,7 +425,46 @@ namespace Final_Project
 
         private void UpdateUserButton_Click(object sender, EventArgs e)
         {
+            /* Sanitizing the product ID data before attempting a database connection.
+             */
+            if (UpdateUserUsernameInput.Text == "")
+            {
+                GenerateError(UserOutputLabel, "Could not update user. Invalid Username.");
+                return;
+            }
 
+            if (!CreateDatabaseConnection(UserOutputLabel))
+            {
+                return;
+            }
+
+            string statement =
+                "UPDATE TB_Users " +
+                "SET First_Name = @FirstName, Last_Name = @LastName, Phone = @Phone, Email = @Email, " +
+                "IsAdmin = @Admin, IsVeteran = @Veteran, IsSenior = @Senior, IsTeacher = @Teacher " +
+                "WHERE Username = @Username";
+
+            SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
+            command.Parameters.AddWithValue("@FirstName", UpdateUserFirstNameInput.Text);
+            command.Parameters.AddWithValue("@LastName", UpdateUserLastNameInput.Text);
+            command.Parameters.AddWithValue("@Phone", UpdateUserPhoneInput.Text);
+            command.Parameters.AddWithValue("@Email", UpdateUserEmailInput.Text);
+            command.Parameters.AddWithValue("@Admin", UpdateUserAdminCheckbox.Checked);
+            command.Parameters.AddWithValue("@Veteran", UpdateUserVeteranCheckbox.Checked);
+            command.Parameters.AddWithValue("@Senior", UpdateUserSeniorCheckbox.Checked);
+            command.Parameters.AddWithValue("@Teacher", UpdateUserTeacherCheckbox.Checked);
+            command.Parameters.AddWithValue("@Username", UpdateUserUsernameInput.Text);
+                
+            if (command.ExecuteNonQuery() <= 0)
+            {
+                GenerateError(UserOutputLabel, "User could not be updated.");
+            }
+            else
+            {
+                GenerateSuccess(UserOutputLabel, "User information updated successfully.");
+            }
+
+            PopulateDataGrid(UserDataView, "SELECT Username, First_Name, Last_Name, Phone, Email, IsAdmin, IsVeteran, IsSenior, IsTeacher FROM TB_Users");
         }
 
         private void DeleteUserButton_Click(object sender, EventArgs e)
