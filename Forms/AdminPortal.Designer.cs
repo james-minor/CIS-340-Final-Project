@@ -54,9 +54,9 @@
             this.CreateUserSeniorCheckBox = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
             this.CreateUserAdminCheckBox = new System.Windows.Forms.CheckBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.GeneratedUserUsernameTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.GeneratedUserPasswordTextBox = new System.Windows.Forms.TextBox();
             this.UserDataView = new System.Windows.Forms.DataGridView();
             this.UserOutputLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -297,9 +297,9 @@
             this.groupBox3.Controls.Add(this.CreateUserSeniorCheckBox);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.CreateUserAdminCheckBox);
-            this.groupBox3.Controls.Add(this.textBox8);
+            this.groupBox3.Controls.Add(this.GeneratedUserUsernameTextBox);
             this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.textBox10);
+            this.groupBox3.Controls.Add(this.GeneratedUserPasswordTextBox);
             this.groupBox3.Location = new System.Drawing.Point(9, 137);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(775, 97);
@@ -366,13 +366,13 @@
             this.CreateUserAdminCheckBox.Text = "Admin";
             this.CreateUserAdminCheckBox.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // GeneratedUserUsernameTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(187, 41);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(258, 20);
-            this.textBox8.TabIndex = 6;
+            this.GeneratedUserUsernameTextBox.Location = new System.Drawing.Point(187, 41);
+            this.GeneratedUserUsernameTextBox.Name = "GeneratedUserUsernameTextBox";
+            this.GeneratedUserUsernameTextBox.ReadOnly = true;
+            this.GeneratedUserUsernameTextBox.Size = new System.Drawing.Size(258, 20);
+            this.GeneratedUserUsernameTextBox.TabIndex = 6;
             // 
             // label16
             // 
@@ -383,13 +383,13 @@
             this.label16.TabIndex = 3;
             this.label16.Text = "Generated Password";
             // 
-            // textBox10
+            // GeneratedUserPasswordTextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(451, 42);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(258, 20);
-            this.textBox10.TabIndex = 2;
+            this.GeneratedUserPasswordTextBox.Location = new System.Drawing.Point(451, 42);
+            this.GeneratedUserPasswordTextBox.Name = "GeneratedUserPasswordTextBox";
+            this.GeneratedUserPasswordTextBox.ReadOnly = true;
+            this.GeneratedUserPasswordTextBox.Size = new System.Drawing.Size(258, 20);
+            this.GeneratedUserPasswordTextBox.TabIndex = 2;
             // 
             // UserDataView
             // 
@@ -740,9 +740,9 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button CreateUserButton;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox GeneratedUserUsernameTextBox;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox GeneratedUserPasswordTextBox;
         private System.Windows.Forms.Button DeleteUserButton;
         private System.Windows.Forms.CheckBox UpdateUserTeacherCheckbox;
         private System.Windows.Forms.CheckBox UpdateUserVeteranCheckbox;

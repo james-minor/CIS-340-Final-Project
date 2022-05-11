@@ -140,6 +140,25 @@ namespace Final_Project
             outputLabel.Text = outputString;
         }
 
+        /* Generates a random, NON-CRYPTOGRAPHICALLY SOUND, string.
+         * Returns the generated string.
+         * 
+         * length:              The desired string length.
+         */
+        private string GenerateRandomString(int length)
+        {
+            char[] output = new char[length];
+            char[] characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();   
+            Random random = new Random();
+
+            for (int i = 0; i < length; i++)
+            {
+                output[i] = characters[random.Next(0, characters.Length)];
+            }
+
+            return new String(output);
+        }
+
         /* ------- Global Form Buttons -------
          */
         private void UserSettingsButton_Click(object sender, EventArgs e)
@@ -366,8 +385,7 @@ namespace Final_Project
         }
 
         /* ------- User Tab Functions -------
-         */
-        
+         */        
         private void UserSearchButton_Click(object sender, EventArgs e)
         {
             /* Sanitizing the input data before attempting a database connection.
@@ -521,7 +539,57 @@ namespace Final_Project
 
         private void CreateUserButton_Click(object sender, EventArgs e)
         {
+            if (!CreateDatabaseConnection(UserOutputLabel))
+            {
+                return;
+            }
 
+            /* Generating the new Username and Password.
+             */
+            string username = "User" + GenerateRandomString(6);
+            string password = GenerateRandomString(12);
+
+            string selectStatement =
+                "SELECT Username " +
+                "FROM TB_Users " +
+                "WHERE Username = @Username";
+
+            /* Ensuring that the generated username does NOT already exist.
+             */
+            SqlCommand selectCommand = new SqlCommand(selectStatement, Connection.GetConnection());
+            selectCommand.Parameters.AddWithValue("@Username", username);
+
+            while(selectCommand.ExecuteNonQuery() > 0)
+            {
+                username = "User" + GenerateRandomString(6);
+            }
+
+            /* Inserting the user into the Users Table.
+             */
+            string insertStatement =
+                "INSERT INTO TB_Users " +
+                "VALUES (@Username, @Password, '', '', '', '', @IsAdmin, @IsVeteran, @IsSenior, @IsTeacher)";
+
+            SqlCommand insertCommand = new SqlCommand(insertStatement, Connection.GetConnection());
+            insertCommand.Parameters.AddWithValue("@Username", username);
+            insertCommand.Parameters.AddWithValue("@Password", password);
+            insertCommand.Parameters.AddWithValue("@IsAdmin", CreateUserAdminCheckBox.Checked);
+            insertCommand.Parameters.AddWithValue("@IsVeteran", CreateUserVeteranCheckBox.Checked);
+            insertCommand.Parameters.AddWithValue("@IsSenior", CreateUserSeniorCheckBox.Checked);
+            insertCommand.Parameters.AddWithValue("@IsTeacher", CreateUserTeacherCheckBox.Checked);
+
+            if (insertCommand.ExecuteNonQuery() <= 0)
+            {
+                GenerateError(UserOutputLabel, "User could not be created.");
+            }
+            else
+            {
+                GenerateSuccess(UserOutputLabel, "User created successfully.");
+                GeneratedUserUsernameTextBox.Text = username;
+                GeneratedUserPasswordTextBox.Text = password;
+            }
+
+            PopulateDataGrid(UserDataView, "SELECT Username, First_Name, Last_Name, Phone, Email, IsAdmin, IsVeteran, IsSenior, IsTeacher FROM TB_Users");
         }
     }
 }
