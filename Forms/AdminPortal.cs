@@ -199,8 +199,6 @@ namespace Final_Project
             {
                 GenerateSuccess(ProductOutputLabel, "Product found successfully.");
 
-                ProductSearchIDInput.Text = Convert.ToString(reader["Product_ID"]);
-
                 ProductUpdateIDInput.Text = Convert.ToString(reader["Product_ID"]);
                 ProductUpdateNameInput.Text = (string)reader["Name"];
                 ProductUpdatePriceInput.Text = String.Format("{0:0.00}", reader["Price"]);
@@ -389,7 +387,7 @@ namespace Final_Project
 
             /* Attempting to create a Database Connection.
              */
-            if (!CreateDatabaseConnection(ProductOutputLabel))
+            if (!CreateDatabaseConnection(UserOutputLabel))
             {
                 return;
             }
@@ -432,7 +430,54 @@ namespace Final_Project
 
         private void DeleteUserButton_Click(object sender, EventArgs e)
         {
-            // TODO: Prevent user from deleting the currentUsername
+            /* Sanitizing the input data before attempting a database connection.
+             */
+            if (UpdateUserUsernameInput.Text == "")
+            {
+                GenerateError(UserOutputLabel, "Could not delete user. Invalid Username.");
+                return;
+            }
+
+            if (UpdateUserUsernameInput.Text == currentUsername)
+            {
+                GenerateError(UserOutputLabel, "Cannot delete currently logged in user.");
+               return;
+            }
+
+            /* DELETE statement to remove the user information.
+             */
+            string statement =
+                "DELETE " +
+                "FROM TB_Users " +
+                "WHERE Username = @Username ";
+
+            /* Attempting to create a Database Connection.
+             */
+            if (!CreateDatabaseConnection(UserOutputLabel))
+            {
+                return;
+            }
+
+            /* Adding in the values for the DELETE statement parameters.
+             */
+            SqlCommand command = new SqlCommand(statement, Connection.GetConnection());
+            command.Parameters.AddWithValue("@Username", UpdateUserUsernameInput.Text);
+
+            /* Running and Validating the SQL query.
+             */
+            int rowsAffected = command.ExecuteNonQuery();
+            Connection.Close();
+
+            if (rowsAffected > 0)
+            {
+                GenerateSuccess(UserOutputLabel, "User deleted successfully.");
+            }
+            else
+            {
+                GenerateError(UserOutputLabel, "Cannot delete a user that does not exist.");
+            }
+
+            PopulateDataGrid(UserDataView, "SELECT Username, First_Name, Last_Name, Phone, Email, IsAdmin, IsVeteran, IsSenior, IsTeacher FROM TB_Users");
         }
 
         private void CreateUserButton_Click(object sender, EventArgs e)
