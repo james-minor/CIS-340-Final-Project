@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PasswordOutputLabel = new System.Windows.Forms.Label();
             this.ChangePasswordButton = new System.Windows.Forms.Button();
             this.NewPasswordInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.ChangeUsernameButton = new System.Windows.Forms.Button();
             this.NewUsernameInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.PasswordOutputLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -69,12 +69,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change Password";
             // 
+            // PasswordOutputLabel
+            // 
+            this.PasswordOutputLabel.AutoSize = true;
+            this.PasswordOutputLabel.ForeColor = System.Drawing.Color.Brown;
+            this.PasswordOutputLabel.Location = new System.Drawing.Point(6, 22);
+            this.PasswordOutputLabel.Name = "PasswordOutputLabel";
+            this.PasswordOutputLabel.Size = new System.Drawing.Size(90, 13);
+            this.PasswordOutputLabel.TabIndex = 5;
+            this.PasswordOutputLabel.Text = "Password Invalid.";
+            // 
             // ChangePasswordButton
             // 
             this.ChangePasswordButton.Location = new System.Drawing.Point(51, 69);
             this.ChangePasswordButton.Name = "ChangePasswordButton";
             this.ChangePasswordButton.Size = new System.Drawing.Size(154, 23);
-            this.ChangePasswordButton.TabIndex = 2;
+            this.ChangePasswordButton.TabIndex = 9;
             this.ChangePasswordButton.Text = "Change Password";
             this.ChangePasswordButton.UseVisualStyleBackColor = true;
             this.ChangePasswordButton.Click += new System.EventHandler(this.ChangePasswordButton_Click);
@@ -84,7 +94,7 @@
             this.NewPasswordInput.Location = new System.Drawing.Point(93, 43);
             this.NewPasswordInput.Name = "NewPasswordInput";
             this.NewPasswordInput.Size = new System.Drawing.Size(154, 20);
-            this.NewPasswordInput.TabIndex = 1;
+            this.NewPasswordInput.TabIndex = 8;
             // 
             // label1
             // 
@@ -129,7 +139,7 @@
             this.ChangeInformationButton.Location = new System.Drawing.Point(51, 159);
             this.ChangeInformationButton.Name = "ChangeInformationButton";
             this.ChangeInformationButton.Size = new System.Drawing.Size(154, 23);
-            this.ChangeInformationButton.TabIndex = 4;
+            this.ChangeInformationButton.TabIndex = 5;
             this.ChangeInformationButton.Text = "Change Information";
             this.ChangeInformationButton.UseVisualStyleBackColor = true;
             this.ChangeInformationButton.Click += new System.EventHandler(this.ChangeInformationButton_Click);
@@ -139,7 +149,7 @@
             this.PhoneInput.Location = new System.Drawing.Point(12, 114);
             this.PhoneInput.Name = "PhoneInput";
             this.PhoneInput.Size = new System.Drawing.Size(235, 20);
-            this.PhoneInput.TabIndex = 7;
+            this.PhoneInput.TabIndex = 4;
             // 
             // label7
             // 
@@ -155,7 +165,7 @@
             this.EmailInput.Location = new System.Drawing.Point(12, 75);
             this.EmailInput.Name = "EmailInput";
             this.EmailInput.Size = new System.Drawing.Size(235, 20);
-            this.EmailInput.TabIndex = 5;
+            this.EmailInput.TabIndex = 3;
             // 
             // label6
             // 
@@ -171,7 +181,7 @@
             this.LastNameInput.Location = new System.Drawing.Point(147, 36);
             this.LastNameInput.Name = "LastNameInput";
             this.LastNameInput.Size = new System.Drawing.Size(100, 20);
-            this.LastNameInput.TabIndex = 3;
+            this.LastNameInput.TabIndex = 2;
             // 
             // label5
             // 
@@ -203,7 +213,7 @@
             this.BackButton.Location = new System.Drawing.Point(196, 453);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 23);
-            this.BackButton.TabIndex = 2;
+            this.BackButton.TabIndex = 10;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
@@ -246,7 +256,7 @@
             this.ChangeUsernameButton.Location = new System.Drawing.Point(51, 70);
             this.ChangeUsernameButton.Name = "ChangeUsernameButton";
             this.ChangeUsernameButton.Size = new System.Drawing.Size(154, 23);
-            this.ChangeUsernameButton.TabIndex = 2;
+            this.ChangeUsernameButton.TabIndex = 7;
             this.ChangeUsernameButton.Text = "Change Username";
             this.ChangeUsernameButton.UseVisualStyleBackColor = true;
             this.ChangeUsernameButton.Click += new System.EventHandler(this.ChangeUsernameButton_Click);
@@ -256,7 +266,7 @@
             this.NewUsernameInput.Location = new System.Drawing.Point(93, 44);
             this.NewUsernameInput.Name = "NewUsernameInput";
             this.NewUsernameInput.Size = new System.Drawing.Size(154, 20);
-            this.NewUsernameInput.TabIndex = 1;
+            this.NewUsernameInput.TabIndex = 6;
             // 
             // label2
             // 
@@ -266,16 +276,6 @@
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "New Username:";
-            // 
-            // PasswordOutputLabel
-            // 
-            this.PasswordOutputLabel.AutoSize = true;
-            this.PasswordOutputLabel.ForeColor = System.Drawing.Color.Brown;
-            this.PasswordOutputLabel.Location = new System.Drawing.Point(6, 22);
-            this.PasswordOutputLabel.Name = "PasswordOutputLabel";
-            this.PasswordOutputLabel.Size = new System.Drawing.Size(90, 13);
-            this.PasswordOutputLabel.TabIndex = 5;
-            this.PasswordOutputLabel.Text = "Password Invalid.";
             // 
             // UserSettings
             // 
